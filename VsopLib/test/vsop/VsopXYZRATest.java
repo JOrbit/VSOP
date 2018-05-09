@@ -45,12 +45,11 @@ public class VsopXYZRATest {
       System.out.println("jDN");
       int year = 2000;
       int month = 1;
-      int day = 12;
+      int day = 1;
       int expResult = 2451545;
       int result = VsopXYZRA.jDN(year, month, day);
       assertEquals(expResult, result);
       // TODO review the generated test code and remove the default call to fail.
-      fail("The test case is a prototype.");
    }
 
    /**
@@ -61,7 +60,7 @@ public class VsopXYZRATest {
       System.out.println("jD");
       int year = 2000;
       int month = 1;
-      int day = 12;
+      int day = 1;
       int julianDayNuber = VsopXYZRA.jDN(year, month, day);
       int hour = 0;
       int minute = 0;
@@ -70,7 +69,6 @@ public class VsopXYZRATest {
       double result = VsopXYZRA.jD(julianDayNuber, hour, minute, second);
       assertEquals(expResult, result, 0.0);
       // TODO review the generated test code and remove the default call to fail.
-      fail("The test case is a prototype.");
    }
 
    /**
@@ -82,7 +80,7 @@ public class VsopXYZRATest {
       
       int year = 2000;
       int month = 1;
-      int day = 12;
+      int day = 1;
       int julianDayNuber = VsopXYZRA.jDN(year, month, day);
       
       int hour = 0;
@@ -95,7 +93,6 @@ public class VsopXYZRATest {
       System.out.println("t = " + result);
       assertEquals(expResult, result, 0.0);
       // TODO review the generated test code and remove the default call to fail.
-      fail("The test case is a prototype.");
    }
 
 }
