@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author owner
  */
-public class EarthXYZTest {
+public class EarthXyzFuncsTest {
 
-   public EarthXYZTest() {
+   public EarthXyzFuncsTest() {
    }
 
    @BeforeClass
@@ -38,7 +38,7 @@ public class EarthXYZTest {
    }
 
    /**
-    * Test of Earth_X0 method, of class EarthXYZ.
+    * Test of Earth_X0 method, of class EarthXyzFuncs.
     */
    @Test
    public void testEarthXYZ() {
@@ -49,114 +49,114 @@ public class EarthXYZTest {
       int year = 2000;
       int month = 1;
       int day = 1;
-      int julianDayNuber = VsopXYZRA.jDN(year, month, day);
+      int julianDayNuber = DateFuncs.jDN(year, month, day);
 
       int hour = 12;
       int minute = 0;
       double second = 0.0;
-      double julianDate = VsopXYZRA.jD(julianDayNuber, hour, minute, second);
+      double julianDate = DateFuncs.jD(julianDayNuber, hour, minute, second);
 
-      double t = VsopXYZRA.t(julianDate);
+      double t = DateFuncs.t(julianDate);
       System.out.println("t = " + t);
 
       System.out.println("Run 5 XYZ parameters.");
-      EarthXYZTest.xYZParameters(t);
+      EarthXyzFuncsTest.xYZParameters(t);
 
       System.out.println("Tesing for 06/01/2000 12:00:00");
 
       month = 8;
-      julianDayNuber = VsopXYZRA.jDN(year, month, day);
+      julianDayNuber = DateFuncs.jDN(year, month, day);
 
-      julianDate = VsopXYZRA.jD(julianDayNuber, hour, minute, second);
+      julianDate = DateFuncs.jD(julianDayNuber, hour, minute, second);
 
-      t = VsopXYZRA.t(julianDate);
+      t = DateFuncs.t(julianDate);
       System.out.println("t = " + t);
 
       System.out.println("Run 5 XYZ parameters.");
-      EarthXYZTest.xYZParameters(t);
+      EarthXyzFuncsTest.xYZParameters(t);
 
    }
 
    public static void xYZParameters(double t) {
       System.out.println("Test_X0");
-      double result = EarthXYZ.Earth_X0(t);
+      double result = EarthXyzFuncs.Earth_X0(t);
       System.out.println("result = " + result);
       double expResult = result; //TODO:
       System.out.println("No assertions!!!");
       assertEquals(expResult, result, 0.0);
 
       System.out.println("Test_X1");
-      result = EarthXYZ.Earth_X1(t);
+      result = EarthXyzFuncs.Earth_X1(t);
       System.out.println("result = " + result);
       expResult = result; //TODO:
       System.out.println("No assertions!!!");
       assertEquals(expResult, result, 0.0);
 
       System.out.println("Test_X2");
-      result = EarthXYZ.Earth_X2(t);
+      result = EarthXyzFuncs.Earth_X2(t);
       System.out.println("result = " + result);
       expResult = result; //TODO:
       System.out.println("No assertions!!!");
       assertEquals(expResult, result, 0.0);
 
       System.out.println("Test_X3");
-      result = EarthXYZ.Earth_X3(t);
+      result = EarthXyzFuncs.Earth_X3(t);
       System.out.println("result = " + result);
       expResult = result; //TODO:
       System.out.println("No assertions!!!");
       assertEquals(expResult, result, 0.0);
 
       System.out.println("Test_X4");
-      result = EarthXYZ.Earth_X4(t);
+      result = EarthXyzFuncs.Earth_X4(t);
       System.out.println("result = " + result);
       expResult = result; //TODO:
       System.out.println("No assertions!!!");
       assertEquals(expResult, result, 0.0);
 
       System.out.println("Test_X5");
-      result = EarthXYZ.Earth_X5(t);
+      result = EarthXyzFuncs.Earth_X5(t);
       System.out.println("result = " + result);
       expResult = result; //TODO:
       System.out.println("No assertions!!!");
       assertEquals(expResult, result, 0.0);
 
       System.out.println("Test_Y0");
-      result = EarthXYZ.Earth_Y0(t);
+      result = EarthXyzFuncs.Earth_Y0(t);
       System.out.println("result = " + result);
       expResult = result; //TODO:
       System.out.println("No assertions!!!");
       assertEquals(expResult, result, 0.0);
 
       System.out.println("Test_Y1");
-      result = EarthXYZ.Earth_Y1(t);
+      result = EarthXyzFuncs.Earth_Y1(t);
       System.out.println("result = " + result);
       expResult = result; //TODO:
       System.out.println("No assertions!!!");
       assertEquals(expResult, result, 0.0);
 
       System.out.println("Test_Y2");
-      result = EarthXYZ.Earth_Y2(t);
+      result = EarthXyzFuncs.Earth_Y2(t);
       System.out.println("result = " + result);
       expResult = result; //TODO:
       System.out.println("No assertions!!!");
       assertEquals(expResult, result, 0.0);
 
       System.out.println("Test_Y3");
-      result = EarthXYZ.Earth_Y3(t);
+      result = EarthXyzFuncs.Earth_Y3(t);
       System.out.println("result = " + result);
       expResult = result; //TODO:
       System.out.println("No assertions!!!");
       assertEquals(expResult, result, 0.0);
 
       System.out.println("Test_Y4");
-      result = EarthXYZ.Earth_Y4(t);
+      result = EarthXyzFuncs.Earth_Y4(t);
       System.out.println("result = " + result);
       expResult = result; //TODO:
       System.out.println("No assertions!!!");
       assertEquals(expResult, result, 0.0);
 
       System.out.println("Test_Y5");
-      result = EarthXYZ.Earth_Y5(t);
+      result = EarthXyzFuncs.Earth_Y5(t);
       System.out.println("result = " + result);
       expResult = result; //TODO:
       System.out.println("No assertions!!!");

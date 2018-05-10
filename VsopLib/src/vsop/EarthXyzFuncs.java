@@ -9,7 +9,7 @@ package vsop;
  *
  * @author owner
  */
-public class EarthXYZ {
+public class EarthXyzFuncs {
 
    /*
 

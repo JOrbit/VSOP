@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author owner
  */
-public class VsopXYZRATest {
+public class DateFuncsTest {
 
-   public VsopXYZRATest() {
+   public DateFuncsTest() {
    }
 
    @BeforeClass
@@ -38,7 +38,7 @@ public class VsopXYZRATest {
    }
 
    /**
-    * Test of jDN method, of class VsopXYZRA.
+    * Test of jDN method, of class DateFuncs.
     */
    @Test
    public void testJDN() {
@@ -47,13 +47,13 @@ public class VsopXYZRATest {
       int month = 1;
       int day = 1;
       int expResult = 2451545;
-      int result = VsopXYZRA.jDN(year, month, day);
+      int result = DateFuncs.jDN(year, month, day);
       assertEquals(expResult, result);
       // TODO review the generated test code and remove the default call to fail.
    }
 
    /**
-    * Test of jD method, of class VsopXYZRA.
+    * Test of jD method, of class DateFuncs.
     */
    @Test
    public void testJD() {
@@ -61,18 +61,18 @@ public class VsopXYZRATest {
       int year = 2000;
       int month = 1;
       int day = 1;
-      int julianDayNuber = VsopXYZRA.jDN(year, month, day);
+      int julianDayNuber = DateFuncs.jDN(year, month, day);
       int hour = 0;
       int minute = 0;
       double second = 0.0;
       double expResult = 2451545.0;
-      double result = VsopXYZRA.jD(julianDayNuber, hour, minute, second);
+      double result = DateFuncs.jD(julianDayNuber, hour, minute, second);
       assertEquals(expResult, result, 0.0);
       // TODO review the generated test code and remove the default call to fail.
    }
 
    /**
-    * Test of t method, of class VsopXYZRA.
+    * Test of t method, of class DateFuncs.
     */
    @Test
    public void testT() {
@@ -81,15 +81,15 @@ public class VsopXYZRATest {
       int year = 2000;
       int month = 1;
       int day = 1;
-      int julianDayNuber = VsopXYZRA.jDN(year, month, day);
+      int julianDayNuber = DateFuncs.jDN(year, month, day);
       
       int hour = 0;
       int minute = 0;
       double second = 0.0;
-      double julianDate = VsopXYZRA.jD(julianDayNuber, hour, minute, second);
+      double julianDate = DateFuncs.jD(julianDayNuber, hour, minute, second);
 
       double expResult = 0.0;
-      double result = VsopXYZRA.t(julianDate);
+      double result = DateFuncs.t(julianDate);
       System.out.println("t = " + result);
       assertEquals(expResult, result, 0.0);
       // TODO review the generated test code and remove the default call to fail.
