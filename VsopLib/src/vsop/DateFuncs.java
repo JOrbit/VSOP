@@ -16,10 +16,23 @@ public class DateFuncs {
    //
    public static int jDN(int year, int month, int day) {
 
+      /*
+      Taken from http://aa.usno.navy.mil/faq/docs/JD_Formula.php
+       */
       int julianDayNumber;
+
+      long I = year;
+      long J = month;
+      long K = day;
+
+      double jdnd = K - 32075 + 1461 * (I + 4800 + (J - 14) / 12) / 4 + 367 * (J - 2 - (J - 14) / 12 * 12) / 12
+              - 3 * ((I + 4900 + (J - 14) / 12) / 100) / 4;
+
+      System.out.println("jdnd = " + jdnd);
+      julianDayNumber = (int) jdnd;
+
       /* 
            From Wikipedia
-       */
       double yd = year;
       double md = month;
       double dd = day;
@@ -28,23 +41,8 @@ public class DateFuncs {
               - (3d * ((yd + 4900d + (md - 14d) / 12d) / 100d)) / 4d
               + dd - 32075d;
 
-      System.out.println("jdnd = " + jdnd);
-
-      /*
-      Taken from 
        */
-      int A = year / 100;
-      int B = A / 4;
-      int C = 2 - A + B;
-      double Ed = 365.25d * (year + 4716);
-      int E = (int) Ed;
-      double Fd = 30.6001d * (month + 1);
-      int F = (int) Fd;
-      jdnd = C + day + E + F - 1524.5;
-      System.out.println("jdnd = " + jdnd);
-      julianDayNumber = (int) jdnd;
-
-      /*
+ /*
       Taken from http://aa.quae.nd/en/reken/judiaansedag.html see Julian Date to CJDN
       
       int J0 = 1721117;
