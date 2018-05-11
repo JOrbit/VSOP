@@ -11,15 +11,15 @@ package vsop;
  */
 public class DateFuncs {
 
+   //
+   // NOTE: Does not work for Gregorian Dates prior to 1588
+   //
    public static int jDN(int year, int month, int day) {
+
       int julianDayNumber;
-
-      //jDN = (1461 * (year + 4800 + (month − 14)/12))/4 +(367 * (month − 2 − 12 * ((month − 14)/12)))/12 − (3 * ((year + 4900 + (month - 14)/12)/100))/4 + D − 32075;
-      julianDayNumber = (1461 * (year + 4800 + (month - 14) / 12)) / 4
-              + (367 * (month - 2 - 12 * ((month - 14) / 12))) / 12
-              - (3 * ((year + 4900 + (month - 14) / 12) / 100)) / 4
-              + day - 32075;
-
+      /* 
+           From Wikipedia
+       */
       double yd = year;
       double md = month;
       double dd = day;
@@ -27,12 +27,26 @@ public class DateFuncs {
               + (367d * (md - 2d - 12d * ((md - 14d) / 12d))) / 12d
               - (3d * ((yd + 4900d + (md - 14d) / 12d) / 100d)) / 4d
               + dd - 32075d;
+
       System.out.println("jdnd = " + jdnd);
 
       /*
-      Taken from http://aa.quae.nd/en/reken/judiaansedag.html see Julian Date to CJDN
+      Taken from 
        */
- /*
+      int A = year / 100;
+      int B = A / 4;
+      int C = 2 - A + B;
+      double Ed = 365.25d * (year + 4716);
+      int E = (int) Ed;
+      double Fd = 30.6001d * (month + 1);
+      int F = (int) Fd;
+      jdnd = C + day + E + F - 1524.5;
+      System.out.println("jdnd = " + jdnd);
+      julianDayNumber = (int) jdnd;
+
+      /*
+      Taken from http://aa.quae.nd/en/reken/judiaansedag.html see Julian Date to CJDN
+      
       int J0 = 1721117;
       int c0 = Math.floorDiv(month - 3, 12);
       int J1 = Math.floorDiv(1461 * (year + c0), 4);
