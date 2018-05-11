@@ -15,7 +15,9 @@ public class VsopLibMain {
     * @param args the command line arguments
     */
    public static void main(String[] args) {
-      // TODO code application logic here
+
+      int julianDayNumber = vsop.DateFuncs.jDN(1499, 12, 19);
+
    }
-   
+
 }
