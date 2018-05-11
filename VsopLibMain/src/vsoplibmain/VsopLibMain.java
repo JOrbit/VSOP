@@ -15,12 +15,9 @@ public class VsopLibMain {
     * @param args the command line arguments
     */
    public static void main(String[] args) {
-
-      int year;
-      int month;
-      int day;
-
       int julianDayNumber;
+      
+      int year, month, day;
 
       year = -4713;
       month = 1;
@@ -56,7 +53,6 @@ public class VsopLibMain {
       month = 01;
       day = 01;
       VsopLibMain.printJulianDayNumber(year, month, day);
-
    }
 
    public static void printJulianDayNumber(int year, int month, int day) {
