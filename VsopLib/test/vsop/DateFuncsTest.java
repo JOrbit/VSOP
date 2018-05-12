@@ -22,15 +22,41 @@ public class DateFuncsTest {
    Test data from http://neoprogrammics.com/vsop87/ Coord test values
     */
    // Inputs
-   public static final int[] Y = {2000, 1899, 1799, 1699, 1599}; //, 1499, 1399, 1299, 1199, 1099};
-   public static final int[] M = {1, 12, 12, 12, 12}; //, 12, 12, 12, 12, 12};
-   public static final int[] D = {1, 31, 30, 29, 29}; //, 19, 19, 19, 19, 19};
-   public static final int[] H = {12, 12, 12, 12, 12}; //, 12, 12, 12, 12, 12};
+   public static final int[] Y = {2000, 1899, 1799, 1699, 1599, 1499, 1399, 1299, 1199, 1099};
+   public static final int[] M = {1
+           , 12
+           , 12
+           , 12
+           , 12
+           , 12
+           , 12
+           , 12
+           , 12
+           , 12};
+   public static final int[] D = {1
+           , 31
+           , 30
+           , 29
+           , 29
+           , 19
+           , 19
+           , 19
+           , 19
+           , 19};
+   public static final int[] H = {12, 12, 12, 12, 12, 12, 12, 12, 12, 12};
    public static final int[] MM = {0, 0, 0, 0, 0, 0, 0, 0};
    public static final int[] S = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
    // Results
-   public static final int[] JDN = {2451545, 2415020, 2378495,
-      2341970, 2305445, 2268920, 2232395, 2195870, 2159345, 2122820};
+   public static final int[] JDN = {2451545
+           , 2415020
+           , 2378495
+           , 2341970
+           , 2305445
+           , 2268920
+           , 2232396
+           , 2195870
+           , 2159345
+           , 2122820};
    public static final double[] JD = {2451545, 2415020, 2378495,
       2341970, 2305445, 2268920, 2232395, 2195870, 2159345, 2122820};
 
