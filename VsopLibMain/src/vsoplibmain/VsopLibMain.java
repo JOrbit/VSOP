@@ -16,7 +16,7 @@ public class VsopLibMain {
     */
    public static void main(String[] args) {
       int julianDayNumber;
-      
+
       int year, month, day;
 
       year = -4713;
@@ -52,6 +52,31 @@ public class VsopLibMain {
       year = 2200;
       month = 01;
       day = 01;
+      VsopLibMain.printJulianDayNumber(year, month, day);
+
+      year = 1499;
+      month = 12;
+      day = 19;
+      VsopLibMain.printJulianDayNumber(year, month, day);
+
+      year = 1399;
+      month = 12;
+      day = 19;
+      VsopLibMain.printJulianDayNumber(year, month, day);
+
+      year = 1582;
+      month = 10;
+      day = 15;
+      VsopLibMain.printJulianDayNumber(year, month, day);
+
+      year = 1582;
+      month = 10;
+      day = 10;
+      VsopLibMain.printJulianDayNumber(year, month, day);
+
+      year = 1582;
+      month = 10;
+      day = 4;
       VsopLibMain.printJulianDayNumber(year, month, day);
    }
 
