@@ -10,6 +10,9 @@ package vsop;
  * @author owner
  */
 public class DateFuncs {
+   
+   public static int J2000 = 2451545;
+   public static int DAYS_PER_MELLINUM = 365250;
 
    //
    // NOTE: Does not work for Gregorian Dates prior to 1588
@@ -20,6 +23,8 @@ public class DateFuncs {
       Taken from http://aa.usno.navy.mil/faq/docs/JD_Formula.php
       NOTE: Most other websites have truncated version of the above site's 
       formula.
+      
+      NOTE!!! This fornula only works for dates greater than 10/15/1582
        */
       int julianDayNumber;
 
@@ -30,28 +35,11 @@ public class DateFuncs {
       double jdnd = K - 32075 + 1461 * (I + 4800 + (J - 14) / 12) / 4 + 367 * (J - 2 - (J - 14) / 12 * 12) / 12
               - 3 * ((I + 4900 + (J - 14) / 12) / 100) / 4;
 
-      //
-      // NOTE: There are no Gregorian Dats between 10/15/1582 and 10/04/1582
-      //
-      if (year <= 1582) {
-         if (year < 1582) {
-            jdnd += 10;
-         } else if (month <= 10) {
-            if (month < 10) {
-               jdnd += 10;
-            } else if (day < 15) {
-               jdnd += 10;
-            }
-         }
-      }
+      // System.out.println("jdnd = " + jdnd);
+      julianDayNumber = (int) jdnd;
 
-         System.out.println("jdnd = " + jdnd);
-         julianDayNumber = (int) jdnd;
-
-         return julianDayNumber;
-      }
-
-   
+      return julianDayNumber;
+   }
 
    public static double jD(int julianDayNuber, int hour, int minute, double second) {
       double jD;
@@ -61,10 +49,13 @@ public class DateFuncs {
       return jD;
    }
 
+   // 
+   // Calculate offset from J2000
+   //
    public static double t(double julianDate) {
       double t;
 
-      t = (julianDate - 2451545) / 365250;
+      t = (julianDate - DateFuncs.J2000) / DateFuncs.DAYS_PER_MELLINUM;
 
       return t;
    }
