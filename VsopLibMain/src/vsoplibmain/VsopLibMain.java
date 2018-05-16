@@ -5,6 +5,11 @@
  */
 package vsoplibmain;
 
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Random;
+
 /**
  *
  * @author owner
@@ -15,9 +20,16 @@ public class VsopLibMain {
     * @param args the command line arguments
     */
    public static void main(String[] args) {
-      int julianDayNumber;
 
-      int year, month, day, usno;
+      timeLocalDate();
+      
+      timejDN();
+
+      //testLocalDateVsjND();
+      /*
+      int year, month, day;
+
+      int usno;
 
       year = -4713;
       month = 1;
@@ -72,7 +84,7 @@ public class VsopLibMain {
       day = 13;
       usno = 2458252;
       VsopLibMain.printJulianDayNumber(year, month, day, usno);
-
+       */
    }
 
    public static void printJulianDayNumber(int year, int month, int day, int usno) {
@@ -84,6 +96,107 @@ public class VsopLibMain {
       System.out.println("julianDayNumber = " + julianDayNumber);
       int diff = usno - julianDayNumber;
       System.out.println("diff = " + diff);
+
+   }
+
+   public static void timeLocalDate() {
+
+      long start = System.currentTimeMillis();
+      int i;
+      for (i = 0; i < 1000000; i++) {
+         Random r = new Random();
+         int Low = 1584;
+         int High = 2300;
+         int year1 = r.nextInt(High - Low) + Low;
+         Low = 1;
+         High = 12;
+         int month1 = r.nextInt(High - Low) + Low;
+         Low = 1;
+         High = 28;
+         int day1 = r.nextInt(High - Low) + Low;
+
+         Low = 1584;
+         High = 2300;
+         int year2 = r.nextInt(High - Low) + Low;
+         Low = 1;
+         High = 12;
+         int month2 = r.nextInt(High - Low) + Low;
+         Low = 1;
+         High = 28;
+         int day2 = r.nextInt(High - Low) + Low;
+         // System.out.println("Result = " + Result);
+         LocalDate ld1 = LocalDate.of(year1, month1, day1);
+         LocalDate ld2 = LocalDate.of(year2, month2, day1);
+         int daysBetween = (int)ld1.until(ld2, ChronoUnit.DAYS);
+      }
+      long end = System.currentTimeMillis();
+      int elapsed = (int) (end - start);
+      System.out.println("timeLocalDate elapsed = " + elapsed);
+
+   }
+
+    public static void timejDN() {
+
+      long start = System.currentTimeMillis();
+      int i;
+      for (i = 0; i < 1000000; i++) {
+         Random r = new Random();
+         int Low = 1584;
+         int High = 2300;
+         int year1 = r.nextInt(High - Low) + Low;
+         Low = 1;
+         High = 12;
+         int month1 = r.nextInt(High - Low) + Low;
+         Low = 1;
+         High = 28;
+         int day1 = r.nextInt(High - Low) + Low;
+
+         Low = 1584;
+         High = 2300;
+         int year2 = r.nextInt(High - Low) + Low;
+         Low = 1;
+         High = 12;
+         int month2 = r.nextInt(High - Low) + Low;
+         Low = 1;
+         High = 28;
+         int day2 = r.nextInt(High - Low) + Low;
+         
+         int jdn1 = vsop.DateFuncs.jDN(year1, month1, day1);
+         int jdn2 = vsop.DateFuncs.jDN(year2, month2, day2);
+         LocalDate ld1 = LocalDate.of(year1, month1, day1);
+         LocalDate ld2 = LocalDate.of(year2, month2, day1);
+         long daysBetween = jdn1 - jdn2;
+      }
+      long end = System.currentTimeMillis();
+      int elapsed = (int)(end - start);
+      System.out.println("timejDN elapsed = " + elapsed);
+
+   }
+
+   public static void testLocalDateVsjND() {
+      int year, month, day, jdn1, jdn2;
+      long daysBetween, diff;
+      ChronoLocalDate ld1, ld2;
+
+      month = 10;
+      day = 15;
+
+      for (year = 1582; year < 2300; year = year + 99) {
+
+         ld1 = LocalDate.of(year, month, day);
+         jdn1 = vsop.DateFuncs.jDN(year, month, day);
+         System.out.println("ld1 = " + ld1);
+         ld2 = LocalDate.of(year + 3, month, day);
+         jdn2 = vsop.DateFuncs.jDN(year, month, day);
+         System.out.println("ld2 = " + ld2);
+         daysBetween = ld1.until(ld2, ChronoUnit.DAYS);
+         System.out.println("daysBetween = " + daysBetween);
+         diff = jdn2 - jdn1;
+         if (diff != 0) {
+            System.out.println("ERROR: diff is not 0 diff = " + diff);
+
+         }
+      }
    }
 
 }
