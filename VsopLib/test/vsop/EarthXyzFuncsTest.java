@@ -76,15 +76,15 @@ public class EarthXyzFuncsTest {
    }
 
    public static void xYZParameters(double t) {
-      System.out.println("Test_X0");
+      System.out.println("Test_X");
 
       EarthXyzFuncs earthXyzFuncs = new EarthXyzFuncs();
       
-      double result = earthXyzFuncs.X0(t);
+      double result = earthXyzFuncs.X(t);
       System.out.println("result = " + result);
-      double expResult = result; //TODO:
-      System.out.println("No assertions!!!");
-      assertEquals(expResult, result, 0.0);
+      double expResult = -0.1771354586;
+      System.out.println("expResult = " + expResult);
+      assertEquals(expResult, result, 0.0000000001);
 
       System.out.println("Test_X1");
       result = earthXyzFuncs.X1(t);
