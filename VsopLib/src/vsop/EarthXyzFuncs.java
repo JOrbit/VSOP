@@ -9,7 +9,14 @@ package vsop;
  *
  * @author owner
  */
-public class EarthXyzFuncs {
+public class EarthXyzFuncs extends XyzFuncs {
+   
+   
+
+   public EarthXyzFuncs() {
+   }
+
+   
 
    /*
 
@@ -44,8 +51,7 @@ public class EarthXyzFuncs {
    http://www.gnu.org/licenses/agpl.html
 
     */
-
-   static double Earth_X0(double t) // 843 terms of order 0
+   public double X0(double t) // 843 terms of order 0
    {
       double X0 = 0;
       X0 += 0.99982928844 * Math.cos(1.75348568475 + 6283.0758499914 * t);
@@ -894,7 +900,7 @@ public class EarthXyzFuncs {
       return X0;
    }
 
-   static double Earth_X1(double t) // 491 terms of order 1
+   public double X1(double t) // 491 terms of order 1
    {
       double X1 = 0;
       X1 += 0.00123403056;
@@ -1391,7 +1397,7 @@ public class EarthXyzFuncs {
       return X1 * t;
    }
 
-   static double Earth_X2(double t) // 204 terms of order 2
+   public double X2(double t) // 204 terms of order 2
    {
       double X2 = 0;
       X2 -= 0.00004143217;
@@ -1601,7 +1607,7 @@ public class EarthXyzFuncs {
       return X2 * t * t;
    }
 
-   static double Earth_X3(double t) // 18 terms of order 3
+   public double X3(double t) // 18 terms of order 3
    {
       double X3 = 0;
       X3 -= 0.00000175213;
@@ -1625,7 +1631,7 @@ public class EarthXyzFuncs {
       return X3 * t * t * t;
    }
 
-   static double Earth_X4(double t) // 15 terms of order 4
+   public double X4(double t) // 15 terms of order 4
    {
       double X4 = 0;
       X4 += 0.00000004022;
@@ -1646,7 +1652,7 @@ public class EarthXyzFuncs {
       return X4 * t * t * t * t;
    }
 
-   static double Earth_X5(double t) // 6 terms of order 5
+   public double X5(double t) // 6 terms of order 5
    {
       double X5 = 0;
       X5 += 0.00000000108;
@@ -1658,7 +1664,7 @@ public class EarthXyzFuncs {
       return X5 * t * t * t * t * t;
    }
 
-   static double Earth_Y0(double t) // 854 terms of order 0
+   public double Y0(double t) // 854 terms of order 0
    {
       double Y0 = 0;
       Y0 += 0.99989211030 * Math.cos(0.18265890456 + 6283.0758499914 * t);
@@ -2518,7 +2524,7 @@ public class EarthXyzFuncs {
       return Y0;
    }
 
-   static double Earth_Y1(double t) // 496 terms of order 1
+   public double Y1(double t) // 496 terms of order 1
    {
       double Y1 = 0;
       Y1 += 0.00093046324;
@@ -3020,7 +3026,7 @@ public class EarthXyzFuncs {
       return Y1 * t;
    }
 
-   static double Earth_Y2(double t) // 202 terms of order 2
+   public double Y2(double t) // 202 terms of order 2
    {
       double Y2 = 0;
       Y2 += 0.00005080208;
@@ -3228,7 +3234,7 @@ public class EarthXyzFuncs {
       return Y2 * t * t;
    }
 
-   static double Earth_Y3(double t) // 17 terms of order 3
+   public double Y3(double t) // 17 terms of order 3
    {
       double Y3 = 0;
       Y3 -= 0.00000128116;
@@ -3251,7 +3257,7 @@ public class EarthXyzFuncs {
       return Y3 * t * t * t;
    }
 
-   static double Earth_Y4(double t) // 15 terms of order 4
+   public double Y4(double t) // 15 terms of order 4
    {
       double Y4 = 0;
       Y4 -= 0.00000004187;
@@ -3272,7 +3278,7 @@ public class EarthXyzFuncs {
       return Y4 * t * t * t * t;
    }
 
-   static double Earth_Y5(double t) // 6 terms of order 5
+   public double Y5(double t) // 6 terms of order 5
    {
       double Y5 = 0;
       Y5 += 0.00000000072;
@@ -3284,7 +3290,7 @@ public class EarthXyzFuncs {
       return Y5 * t * t * t * t * t;
    }
 
-   static double Earth_Z0(double t) // 178 terms of order 0
+   public double Z0(double t) // 178 terms of order 0
    {
       double Z0 = 0;
       Z0 += 0.00000279620 * Math.cos(3.19870156017 + 84334.66158130829 * t);
@@ -3468,7 +3474,7 @@ public class EarthXyzFuncs {
       return Z0;
    }
 
-   static double Earth_Z1(double t) // 120 terms of order 1
+   public double Z1(double t) // 120 terms of order 1
    {
       double Z1 = 0;
       Z1 += 0.00227822442 * Math.cos(3.41372504278 + 6283.0758499914 * t);
@@ -3594,7 +3600,7 @@ public class EarthXyzFuncs {
       return Z1 * t;
    }
 
-   static double Earth_Z2(double t) // 53 terms of order 2
+   public double Z2(double t) // 53 terms of order 2
    {
       double Z2 = 0;
       Z2 += 0.00009721989 * Math.cos(5.15233725915 + 6283.0758499914 * t);
@@ -3653,7 +3659,7 @@ public class EarthXyzFuncs {
       return Z2 * t * t;
    }
 
-   static double Earth_Z3(double t) // 12 terms of order 3
+   public double Z3(double t) // 12 terms of order 3
    {
       double Z3 = 0;
       Z3 += 0.00000276077 * Math.cos(0.59413258730 + 6283.0758499914 * t);
@@ -3671,7 +3677,7 @@ public class EarthXyzFuncs {
       return Z3 * t * t * t;
    }
 
-   static double Earth_Z4(double t) // 6 terms of order 4
+   public double Z4(double t) // 6 terms of order 4
    {
       double Z4 = 0;
       Z4 += 0.00000005751 * Math.cos(2.27069090892 + 6283.0758499914 * t);
@@ -3683,7 +3689,7 @@ public class EarthXyzFuncs {
       return Z4 * t * t * t * t;
    }
 
-   static double Earth_Z5(double t) // 2 terms of order 5
+   public double Z5(double t) // 2 terms of order 5
    {
       double Z5 = 0;
       Z5 += 0.00000000114 * Math.cos(4.31169156923 + 6283.0758499914 * t);
