@@ -21,9 +21,12 @@ public class VsopLibMain {
     */
    public static void main(String[] args) {
 
-      timeLocalDate();
-      
+      timeLocalDateJdn();
+
       timejDN();
+
+      int jdn = vsop.DateFuncs.getApiUsnoNavyJDN(2000, 1, 1);
+      System.out.println("jdn = " + jdn);
 
       //testLocalDateVsjND();
       /*
@@ -99,7 +102,7 @@ public class VsopLibMain {
 
    }
 
-   public static void timeLocalDate() {
+   public static void timeLocalDateJdn() {
 
       long start = System.currentTimeMillis();
       int i;
@@ -115,19 +118,8 @@ public class VsopLibMain {
          High = 28;
          int day1 = r.nextInt(High - Low) + Low;
 
-         Low = 1584;
-         High = 2300;
-         int year2 = r.nextInt(High - Low) + Low;
-         Low = 1;
-         High = 12;
-         int month2 = r.nextInt(High - Low) + Low;
-         Low = 1;
-         High = 28;
-         int day2 = r.nextInt(High - Low) + Low;
+         int jdn = vsop.DateFuncs.localDateJdn(year1, month1, day1);
          // System.out.println("Result = " + Result);
-         LocalDate ld1 = LocalDate.of(year1, month1, day1);
-         LocalDate ld2 = LocalDate.of(year2, month2, day1);
-         int daysBetween = (int)ld1.until(ld2, ChronoUnit.DAYS);
       }
       long end = System.currentTimeMillis();
       int elapsed = (int) (end - start);
@@ -135,7 +127,7 @@ public class VsopLibMain {
 
    }
 
-    public static void timejDN() {
+   public static void timejDN() {
 
       long start = System.currentTimeMillis();
       int i;
@@ -151,24 +143,10 @@ public class VsopLibMain {
          High = 28;
          int day1 = r.nextInt(High - Low) + Low;
 
-         Low = 1584;
-         High = 2300;
-         int year2 = r.nextInt(High - Low) + Low;
-         Low = 1;
-         High = 12;
-         int month2 = r.nextInt(High - Low) + Low;
-         Low = 1;
-         High = 28;
-         int day2 = r.nextInt(High - Low) + Low;
-         
-         int jdn1 = vsop.DateFuncs.jDN(year1, month1, day1);
-         int jdn2 = vsop.DateFuncs.jDN(year2, month2, day2);
-         LocalDate ld1 = LocalDate.of(year1, month1, day1);
-         LocalDate ld2 = LocalDate.of(year2, month2, day1);
-         long daysBetween = jdn1 - jdn2;
+         int jdn = vsop.DateFuncs.jDN(year1, month1, day1);
       }
       long end = System.currentTimeMillis();
-      int elapsed = (int)(end - start);
+      int elapsed = (int) (end - start);
       System.out.println("timejDN elapsed = " + elapsed);
 
    }
