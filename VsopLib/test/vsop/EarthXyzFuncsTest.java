@@ -18,7 +18,6 @@ import static org.junit.Assert.*;
  */
 public class EarthXyzFuncsTest {
 
-   
    @BeforeClass
    public static void setUpClass() {
    }
@@ -39,9 +38,38 @@ public class EarthXyzFuncsTest {
     * Test of Earth_X0 method, of class EarthXyzFuncs.
     */
    @Test
-   public  void testEarthXYZ() {
+   public void testEarthXYZ() {
 
       System.out.println("testEarthXYZ");
+      EarthXyzFuncs earthXyzFuncs = new EarthXyzFuncs();
+
+      for (int i = 0; i < TestData.YYYY.length; i++) {
+         int jdn = TestData.JDN[i];
+         double t = DateFuncs.t(jdn);
+         double result = earthXyzFuncs.X(t);
+         System.out.println("X result = " + result);
+         double expResult = TestData.X[i];
+         System.out.println("expResult = " + expResult);
+         assertEquals(expResult, result, 0.0000000001);
+
+         result = earthXyzFuncs.Y(t);
+         System.out.println("Y result = " + result);
+         expResult = TestData.Y[i];
+         System.out.println("expResult = " + expResult);
+         assertEquals(expResult, result, 0.0000000001);
+
+         result = earthXyzFuncs.Z(t);
+         System.out.println("Z result = " + result);
+         expResult = TestData.Z[i];
+         System.out.println("expResult = " + expResult);
+         assertEquals(expResult, result, 0.0000000001);
+      }
+
+   }
+
+   public void oldEarthXYZ() {
+
+      System.out.println("oldEarthXYZ");
       System.out.println("Tesing for 01/01/2000 12:00:00");
 
       int year = 2000;
@@ -79,7 +107,7 @@ public class EarthXyzFuncsTest {
       System.out.println("Test_X");
 
       EarthXyzFuncs earthXyzFuncs = new EarthXyzFuncs();
-      
+
       double result = earthXyzFuncs.X(t);
       System.out.println("result = " + result);
       double expResult = -0.1771354586;

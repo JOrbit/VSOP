@@ -20,7 +20,7 @@ import java.time.temporal.ChronoUnit;
 public class DateFuncs {
 
    public static int J2000 = 2451545;
-   public static int DAYS_PER_MELLINUM = 365250;
+   public static int DAYS_PER_MILLENNIUM = 365250;
    public static LocalDate JDN0 = LocalDate.of(-4713, 1, 1);
 
    //
@@ -64,7 +64,7 @@ public class DateFuncs {
    public static double t(double julianDate) {
       double t;
 
-      t = (julianDate - DateFuncs.J2000) / DateFuncs.DAYS_PER_MELLINUM;
+      t = (julianDate - DateFuncs.J2000) / DateFuncs.DAYS_PER_MILLENNIUM;
 
       return t;
    }
