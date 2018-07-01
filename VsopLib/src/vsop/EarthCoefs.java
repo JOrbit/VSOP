@@ -6391,6 +6391,17 @@ public class EarthCoefs {
       }
    };
 
+   public static int[] NUMAZPARAMS = {178, 120, 53, 12, 6, 2};
+
+
+   public static double[] AZ0 = {};
+   public static double[] AZ1 = {};
+   public static double[] AZ2 = {};
+   public static double[] AZ3 = {};
+   public static double[] AZ4 = {};
+   public static double[] AZ5 = {};
+   public static double[][] AZ = {};
+
    public EarthCoefs() {
    }
 
@@ -6523,6 +6534,72 @@ public class EarthCoefs {
          System.out.println("INFO: AY[" + i + "].length = " + AY[i].length);
          if (NUMAYPARAMS[i] != AY[i].length) {
             System.out.println("ERROR: NUMAYPARAMS[i] != AY[i].length  ");
+            r = false;
+         }
+      }
+
+      System.out.println("INFO: r = " + r);
+
+      System.out.println("INFO: AY0.length = " + AZ0.length);
+      System.out.println("INFO: NUMAZPARAMS[0] = " + NUMAZPARAMS[0]);
+      if (AZ0.length != NUMAZPARAMS[0]) {
+         System.out.println("ERROR: AZ0.length != NUMAZPARAMS[0]  ");
+         r = false;
+      }
+
+      System.out.println("INFO: r = " + r);
+
+      System.out.println("INFO: AZ1.length = " + AZ1.length);
+      System.out.println("INFO: NUMAZPARAMS[1] = " + NUMAZPARAMS[1]);
+      if (AZ1.length != NUMAZPARAMS[1]) {
+         System.out.println("ERROR: AZ1.length != NUMAZPARAMS[1]  ");
+         r = false;
+      }
+
+      System.out.println("INFO: r = " + r);
+
+      System.out.println("INFO: AZ2.length = " + AZ2.length);
+      System.out.println("INFO: NUMAZPARAMS[2] = " + NUMAZPARAMS[2]);
+      if (AZ2.length != NUMAZPARAMS[2]) {
+         System.out.println("ERROR: AZ2.length != NUMAZPARAMS[2]  ");
+         r = false;
+      }
+
+      System.out.println("INFO: r = " + r);
+
+      System.out.println("INFO: AZ3.length = " + AZ3.length);
+      System.out.println("INFO: NUMAZPARAMS[3] = " + NUMAZPARAMS[3]);
+      if (AZ3.length != NUMAZPARAMS[3]) {
+         System.out.println("ERROR: AZ3.length != NUMAZPARAMS[3]  ");
+         r = false;
+      }
+
+      System.out.println("INFO: r = " + r);
+
+      System.out.println("INFO: AZ4.length = " + AZ4.length);
+      System.out.println("INFO: NUMAZPARAMS[4] = " + NUMAZPARAMS[4]);
+      if (AZ4.length != NUMAZPARAMS[4]) {
+         System.out.println("ERROR: AZ4.length != NUMAZPARAMS[4]  ");
+         r = false;
+      }
+
+      System.out.println("INFO: r = " + r);
+
+      System.out.println("INFO: AZ5.length = " + AZ5.length);
+      System.out.println("INFO: NUMAZPARAMS[5] = " + NUMAZPARAMS[5]);
+      if (AZ5.length != NUMAZPARAMS[5]) {
+         System.out.println("ERROR: AZ5.length != NUMAZPARAMS[5]  ");
+         r = false;
+      }
+
+      System.out.println("INFO: r = " + r);
+
+      for (int i = 0; i < NUMAZPARAMS.length; i++) {
+         System.out.println("INFO: i = " + i);
+         System.out.println("INFO: NUMAZPARAMS[" + i + "] = " + NUMAZPARAMS[i]);
+         System.out.println("INFO: AZ[" + i + "].length = " + AZ[i].length);
+         if (NUMAZPARAMS[i] != AZ[i].length) {
+            System.out.println("ERROR: NUMAZPARAMS[i] != AZ[i].length  ");
             r = false;
          }
       }
