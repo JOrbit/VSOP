@@ -9,9 +9,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import vsop.Coefficients;
 
 /**
  *
@@ -52,6 +55,7 @@ public class EarthtXyzToCoefs {
                  + "};\n";
          coefsFW.write(output);
 
+         Map<String, Map<String, List<Double>>> arrayNameToValues = new HashMap();
          FileReader xyzFR = new FileReader(XYZPATHNAM);
          BufferedReader br = new BufferedReader(xyzFR);
          String line;
@@ -59,33 +63,50 @@ public class EarthtXyzToCoefs {
             if (line.contains("double")) {
                if (!line.contains("//")) {
                   System.out.println("\n");
-                  String ArrayName = null;
-                  List<String> aValues = new ArrayList();
-                  List<String> bValues = new ArrayList();
-                  List<String> cValues = new ArrayList();
+                  String arrayName = null;
+                  List<Double> aValues = new ArrayList();
+                  List<Double> bValues = new ArrayList();
+                  List<Double> cValues = new ArrayList();
                   while (((line = br.readLine()) != null) && (!line.contains("return"))) {
 
                      String[] tokens = line.trim().split(" ");
 //                     for (int i = 0; i < tokens.length; i++) {
 //                        System.out.println("tokens[" + i + "] = " + tokens[i]);
 //                     }
-                     ArrayName = tokens[0];
+                     arrayName = tokens[0];
                      String aValue = tokens[2].replace(";", "");
 //                    System.out.println("aValue = " + aValue);
-                     aValues.add(aValue);
+                     aValues.add(Double.parseDouble(aValue));
+                     String bValue = "0";
+                     String cValue = "0";
                      if (line.contains("cos")) {
-                        String bValue = tokens[4].replace("Math.cos(", "");
+                        bValue = tokens[4].replace("Math.cos(", "");
 //                        System.out.println("bValue = " + bValue);
-                        String cValue = tokens[6];
+                        cValue = tokens[6];
 //                        System.out.println("cValue = " + cValue);
                      }
+                     bValues.add(Double.parseDouble(bValue));
+                     cValues.add(Double.parseDouble(cValue));
+
                   }
-                  System.out.println("ArrayName = " + ArrayName);
-                  for (int i = 0; i < aValues.size(); i++) {
-                     System.out.println("aValues.get(" + i + ") = " + aValues.get(i));
-                  }
+//                  System.out.println("arrayName = " + arrayName);
+//                  for (int i = 0; i < aValues.size(); i++) {
+//                     System.out.println("aValues.get(" + i + ") = " + aValues.get(i));
+                  Map<String, List<Double>> abcValues = new HashMap();
+                  abcValues.put("A", aValues);
+                  abcValues.put("B", bValues);
+                  abcValues.put("C", cValues);
+                  arrayNameToValues.put(arrayName, abcValues);
                }
             }
+         }
+
+         Map<String, List<Double>> abcValues;
+         Coefficients.SixGroups sixGroups[] = Coefficients.SixGroups.values();
+         for (Coefficients.SixGroups sixGroup : sixGroups) {
+            abcValues = arrayNameToValues.get(sixGroup.toString());
+            System.out.println("sixGroup = " + sixGroup);
+            System.out.println ("abcValues = " + abcValues);
          }
 
          output = "}\n";

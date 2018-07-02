@@ -27,14 +27,7 @@ public class VsopLibMain {
     */
    public static void main(String[] args) {
 
-      System.out.println("Planets.EARTH = " + Planets.EARTH);
-      System.out.println("Planets.valueOf(\"EARTH\") = " + Planets.valueOf("EARTH"));
-      System.out.println("Planets.EARTH.orinal = " + Planets.EARTH.ordinal());
-      Planets planets[] = Planets.values();
-      for (Planets planet : planets) {
-         System.out.println("planet = " + planet);
-         System.out.println("planets.ordinal() = " + planet.ordinal());
-      }
+      
 
       timeLocalDateJdn();
 
