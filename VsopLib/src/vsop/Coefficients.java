@@ -16,6 +16,14 @@ public class Coefficients {
       JUPITER, SATURN, URANUS, NEPTUNE
    }
 
+   public static enum Abc {
+      A, B, C
+   }
+
+   public static enum Xyz {
+      X, Y, Z
+   }
+
    public static final int NUMGROUPS = 6;
 
    public static double X(double t, double[][] AX, double[][] BX, double[][] CX) {
@@ -56,4 +64,8 @@ public class Coefficients {
       R = Math.sqrt(X * X + Y * Y + Z * Z);
       return R;
    }
+
+   public Coefficients() {
+   }
+   
 }

@@ -19,6 +19,7 @@ import static org.junit.Assert.*;
 public class EarthCoefsTest {
    
    public EarthCoefsTest() {
+
    }
    
    @BeforeClass
@@ -35,19 +36,6 @@ public class EarthCoefsTest {
    
    @After
    public void tearDown() {
-   }
-
-   /**
-    * Test of validate method, of class EarthCoefs.
-    */
-   @Test
-   public void testValidate() {
-      System.out.println("validate");
-      EarthCoefs instance = new EarthCoefs();
-      boolean expResult = true;
-      boolean result = instance.validate();
-      assertEquals(expResult, result);
-      
    }
    
 }
