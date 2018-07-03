@@ -15,6 +15,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import vsop.Coefficients;
+import vsop.Coefficients.Abc;
+import vsop.Coefficients.Xyz;
 
 /**
  *
@@ -25,14 +27,7 @@ public class EarthtXyzToCoefs {
    public static final String XYZPATHNAM = "D:\\JOrbit\\VSOP\\VsopLib\\src\\vsop\\EarthXyzFuncs.java";
    public static final String COFPATHNAM = "D:\\JOrbit\\VSOP\\VsopLibMain\\src\\vsoplibmain\\EarthCoefs.java";
 
-   public static enum Abc {
-      A, B, C
-   }
-
-   public static enum Xyz {
-      X, Y, Z
-   }
-
+   
    public static class FuncNumKey {
 
       public Xyz function;
@@ -189,7 +184,7 @@ public class EarthtXyzToCoefs {
 
                   for (int j = 0; j < doubleArray.length; j++) {
                      output += doubleArray[j];
-                     //System.out.println("output = " + output);
+//                   System.out.println("output = " + output);
                      if (j < (doubleArray.length - 1)) {
                         output += ",\n";
                      } else {
@@ -215,7 +210,7 @@ public class EarthtXyzToCoefs {
          }
 
          output = "}\n";
-         System.out.println("output = " + output);
+//         System.out.println("output = " + output);
          coefsFW.write(output);
 
          coefsFW.flush();
