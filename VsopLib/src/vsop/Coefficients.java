@@ -16,10 +16,44 @@ public class Coefficients {
       JUPITER, SATURN, URANUS, NEPTUNE
    }
 
-   public static enum SixGroups {
-      X0, X1, X2, X3, X4, X5,
-      Y0, Y1, Y2, Y3, Y4, Y5,
-      Z0, Z1, Z2, Z3, Z4, Z5
+   public static final int NUMGROUPS = 6;
+
+   public static double X(double t, double[][] AX, double[][] BX, double[][] CX) {
+      double X = 0;
+
+      for (int n = 0; n < NUMGROUPS; n++) {
+         for (int j = 0; j < AX[n].length; j++) {
+            X += AX[n][j] * Math.cos(BX[n][j] + t * CX[n][j]) * Math.pow(t, n);
+         }
+      }
+      return X;
    }
 
+   public static double Y(double t, double[][] AY, double[][] BY, double[][] CY) {
+      double Y = 0;
+
+      for (int n = 0; n < NUMGROUPS; n++) {
+         for (int j = 0; j < AY[n].length; j++) {
+            Y += AY[n][j] * Math.cos(BY[n][j] + t * CY[n][j]) * Math.pow(t, n);
+         }
+      }
+      return Y;
+   }
+
+   public static double Z(double t, double[][] AZ, double[][] BZ, double[][] CZ) {
+      double Z = 0;
+
+      for (int n = 0; n < NUMGROUPS; n++) {
+         for (int j = 0; j < AZ[n].length; j++) {
+            Z += AZ[n][j] * Math.cos(BZ[n][j] + t * CZ[n][j]) * Math.pow(t, n);
+         }
+      }
+      return Z;
+   }
+
+   public static double R(double X, double Y, double Z) {
+      double R = 0;
+      R = Math.sqrt(X * X + Y * Y + Z * Z);
+      return R;
+   }
 }
