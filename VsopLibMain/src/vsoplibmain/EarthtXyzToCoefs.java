@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author owner
@@ -51,7 +50,12 @@ public class EarthtXyzToCoefs {
 //                     System.out.println("function = " + function);
 //                        number = tokens[0].substring(1);
 //                     System.out.println("number = " + number);
-                        String aValue = tokens[2].replace(";", "");
+                        String aValue;
+                        if (tokens[1].contains("-")) {
+                           aValue = "-" + tokens[2].replace(";", "");
+                        } else {
+                           aValue = tokens[2].replace(";", "");
+                        }
 //                    System.out.println("aValue = " + aValue);                   
                         aDoubles.add(Double.parseDouble(aValue));
                         String bValue = "0";
