@@ -93,4 +93,19 @@ public class EarthCoefsTest {
 
    }
 
+   /**
+    * Test of createAZ method, of class EarthCoefs.
+    */
+   @Test
+   public void testCreateAZ() {
+      System.out.println("createAZ");
+      EarthCoefs instance = new EarthCoefs();
+      double[][] result = instance.createAZ();
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefs.ZTERMS[i]; j++) {
+            System.out.println("AZ[" + i + "][" + j + "] = " + result[i][j]);
+         }
+      }
+   }
+
 }

@@ -79,6 +79,33 @@ public class EarthCoefs {
       return AY;
    }
 
+   public double[][] createAZ() {
+            double AZ[][] = new double[Coefs.NUMGROUPS][];
+
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         AZ[i] = new double[ZTERMS[i]];
+      }
+
+      int fromIndex = 0;
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         fromIndex += XTERMS[i] + YTERMS[i];
+      }
+
+      int toIndex = 0;
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         toIndex = EarthCoefs.ZTERMS[i] + fromIndex;
+         List<Double> adList = this.coefs.subList(fromIndex, toIndex);
+         int j = 0;
+         for (Double ad : adList) {
+            AZ[i][j++] = ad;
+         }
+         fromIndex = toIndex;
+      }
+
+      return AZ;
+
+   }
+
    private void parseDataFile() {
       try {
          FileReader coefFR = new FileReader(EarthCoefs.COEFPATHNAM);
@@ -87,6 +114,7 @@ public class EarthCoefs {
          while ((line = br.readLine()) != null) {
             Double d = Double.parseDouble(line);
             this.coefs.add(d);
+
          }
       } catch (Exception ex) {
          Logger.getLogger(EarthCoefs.class
