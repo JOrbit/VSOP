@@ -108,4 +108,34 @@ public class EarthCoefsTest {
       }
    }
 
+   /**
+    * Test of createBX method, of class EarthCoefs.
+    */
+   @Test
+   public void testCreateBX() {
+      System.out.println("createBX");
+      EarthCoefs instance = new EarthCoefs();
+      double[][] result = instance.createBX();
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefs.XTERMS[i]; j++) {
+            System.out.println("BX[" + i + "][" + j + "] = " + result[i][j]);
+         }
+      }
+   }
+
+   /**
+    * Test of createBY method, of class EarthCoefs.
+    */
+   @Test
+   public void testCreateBY() {
+      System.out.println("createBY");
+      EarthCoefs instance = new EarthCoefs();
+      double[][] result = instance.createBY();
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefs.YTERMS[i]; j++) {
+            System.out.println("BY[" + i + "][" + j + "] = " + result[i][j]);
+         }
+      }
+   }
+
 }

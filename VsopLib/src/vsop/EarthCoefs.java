@@ -80,7 +80,7 @@ public class EarthCoefs {
    }
 
    public double[][] createAZ() {
-            double AZ[][] = new double[Coefs.NUMGROUPS][];
+      double AZ[][] = new double[Coefs.NUMGROUPS][];
 
       for (int i = 0; i < Coefs.NUMGROUPS; i++) {
          AZ[i] = new double[ZTERMS[i]];
@@ -103,6 +103,59 @@ public class EarthCoefs {
       }
 
       return AZ;
+
+   }
+
+   public double[][] createBX() {
+      double BX[][] = new double[Coefs.NUMGROUPS][];
+
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         BX[i] = new double[XTERMS[i]];
+      }
+
+      int fromIndex = 0;
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         fromIndex += EarthCoefs.XTERMS[i] + EarthCoefs.YTERMS[i] + EarthCoefs.ZTERMS[i];
+      }
+      int toIndex = 0;
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         toIndex = EarthCoefs.XTERMS[i] + fromIndex;
+         List<Double> adList = this.coefs.subList(fromIndex, toIndex);
+         int j = 0;
+         for (Double ad : adList) {
+            BX[i][j++] = ad;
+         }
+         fromIndex = toIndex;
+      }
+
+      return BX;
+
+   }
+   
+public double[][] createBY() {
+      double BY[][] = new double[Coefs.NUMGROUPS][];
+
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         BY[i] = new double[YTERMS[i]];
+      }
+
+      int fromIndex = 0;
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         fromIndex += EarthCoefs.XTERMS[i] + EarthCoefs.YTERMS[i] + EarthCoefs.ZTERMS[i];
+         fromIndex += EarthCoefs.XTERMS[i];
+      }
+      int toIndex = 0;
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         toIndex = EarthCoefs.YTERMS[i] + fromIndex;
+         List<Double> adList = this.coefs.subList(fromIndex, toIndex);
+         int j = 0;
+         for (Double ad : adList) {
+            BY[i][j++] = ad;
+         }
+         fromIndex = toIndex;
+      }
+
+      return BY;
 
    }
 
