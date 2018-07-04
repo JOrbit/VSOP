@@ -10,44 +10,44 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import vsop.Coefficients.Planets;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author owner
  */
-public class CoefficientsTest {
-
-   public CoefficientsTest() {
+public class CoefsTest {
+   
+   public CoefsTest() {
    }
-
+   
    @BeforeClass
    public static void setUpClass() {
    }
-
+   
    @AfterClass
    public static void tearDownClass() {
    }
-
+   
    @Before
    public void setUp() {
    }
-
+   
    @After
    public void tearDown() {
    }
 
    @Test
    public void testSomeMethod() {
-
-      System.out.println("Planets.EARTH = " + Planets.EARTH);
-      System.out.println("Planets.valueOf(\"EARTH\") = " + Planets.valueOf("EARTH"));
-      System.out.println("Planets.EARTH.orinal = " + Planets.EARTH.ordinal());
-      Planets planets[] = Planets.values();
-      for (Planets planet : planets) {
+      System.out.println("Planets.EARTH = " + Coefs.Planets.EARTH);
+      System.out.println("Planets.valueOf(\"EARTH\") = " + Coefs.Planets.valueOf("EARTH"));
+      System.out.println("Planets.EARTH.orinal = " + Coefs.Planets.EARTH.ordinal());
+      Coefs.Planets planets[] = Coefs.Planets.values();
+      for (Coefs.Planets planet : planets) {
          System.out.println("planet = " + planet);
          System.out.println("planets.ordinal() = " + planet.ordinal());
       }
-   }
 
+   }
+   
 }

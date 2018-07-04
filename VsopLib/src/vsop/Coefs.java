@@ -9,17 +9,22 @@ package vsop;
  *
  * @author owner
  */
-public class Coefficients {
+public class Coefs {
 
    public static enum Planets {
       MERCURY, VENUS, EARTH, MARS,
       JUPITER, SATURN, URANUS, NEPTUNE
    }
+  
+   public static final int NUMABC = 3;
+   
 
    public static enum Abc {
       A, B, C
    }
 
+   public static final int NUMXYZ = 3;
+   
    public static enum Xyz {
       X, Y, Z
    }
@@ -65,7 +70,7 @@ public class Coefficients {
       return R;
    }
 
-   public Coefficients() {
+   public Coefs() {
    }
    
 }

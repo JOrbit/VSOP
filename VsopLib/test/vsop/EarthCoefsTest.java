@@ -19,7 +19,6 @@ import static org.junit.Assert.*;
 public class EarthCoefsTest {
    
    public EarthCoefsTest() {
-
    }
    
    @BeforeClass
@@ -36,6 +35,12 @@ public class EarthCoefsTest {
    
    @After
    public void tearDown() {
+   }
+
+   @Test
+   public void testSomeMethod() {
+      EarthCoefs earthCoefs = new EarthCoefs();
+      System.out.println("earthCoefs.getCoefs().size() = " + earthCoefs.getCoefs().size());
    }
    
 }
