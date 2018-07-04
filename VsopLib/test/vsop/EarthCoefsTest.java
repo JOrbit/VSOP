@@ -138,4 +138,19 @@ public class EarthCoefsTest {
       }
    }
 
+   /**
+    * Test of createBZ method, of class EarthCoefs.
+    */
+   @Test
+   public void testCreateBZ() {
+      System.out.println("createBZ");
+      EarthCoefs instance = new EarthCoefs();
+      double[][] result = instance.createBZ();
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefs.ZTERMS[i]; j++) {
+            System.out.println("BZ[" + i + "][" + j + "] = " + result[i][j]);
+         }
+      }
+   }
+
 }

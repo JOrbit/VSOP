@@ -131,8 +131,8 @@ public class EarthCoefs {
       return BX;
 
    }
-   
-public double[][] createBY() {
+
+   public double[][] createBY() {
       double BY[][] = new double[Coefs.NUMGROUPS][];
 
       for (int i = 0; i < Coefs.NUMGROUPS; i++) {
@@ -156,6 +156,34 @@ public double[][] createBY() {
       }
 
       return BY;
+
+   }
+   
+   public double[][] createBZ() {
+      double BZ[][] = new double[Coefs.NUMGROUPS][];
+
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         BZ[i] = new double[ZTERMS[i]];
+      }
+
+      int fromIndex = 0;
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         fromIndex += EarthCoefs.XTERMS[i] + EarthCoefs.YTERMS[i] + EarthCoefs.ZTERMS[i];
+         fromIndex += EarthCoefs.XTERMS[i];
+         fromIndex += EarthCoefs.YTERMS[i];
+      }
+      int toIndex = 0;
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         toIndex = EarthCoefs.ZTERMS[i] + fromIndex;
+         List<Double> adList = this.coefs.subList(fromIndex, toIndex);
+         int j = 0;
+         for (Double ad : adList) {
+            BZ[i][j++] = ad;
+         }
+         fromIndex = toIndex;
+      }
+
+      return BZ;
 
    }
 
