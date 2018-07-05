@@ -153,4 +153,49 @@ public class EarthCoefsTest {
       }
    }
 
+   /**
+    * Test of createCX method, of class EarthCoefs.
+    */
+   @Test
+   public void testCreateCX() {
+      System.out.println("createCX");
+      EarthCoefs instance = new EarthCoefs();
+      double[][] result = instance.createCX();
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefs.XTERMS[i]; j++) {
+            System.out.println("CX[" + i + "][" + j + "] = " + result[i][j]);
+         }
+      }
+   }
+
+   /**
+    * Test of createCY method, of class EarthCoefs.
+    */
+   @Test
+   public void testCreateCY() {
+      System.out.println("createCY");
+      EarthCoefs instance = new EarthCoefs();
+      double[][] result = instance.createCY();
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefs.YTERMS[i]; j++) {
+            System.out.println("CY[" + i + "][" + j + "] = " + result[i][j]);
+         }
+      }
+   }
+
+   /**
+    * Test of createCZ method, of class EarthCoefs.
+    */
+   @Test
+   public void testCreateCZ() {
+      System.out.println("createCZ");
+      EarthCoefs instance = new EarthCoefs();
+      double[][] result = instance.createCZ();
+      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefs.ZTERMS[i]; j++) {
+            System.out.println("CZ[" + i + "][" + j + "] = " + result[i][j]);
+         }
+      }
+   }
+
 }
