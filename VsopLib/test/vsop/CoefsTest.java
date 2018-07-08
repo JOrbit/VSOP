@@ -299,4 +299,165 @@ public class CoefsTest {
       }
    }
 
+   /**
+    * Test of Y0 method, of class Coefs.
+    */
+   @Test
+   public void testY0() {
+      System.out.println("Y0");
+      
+      EarthCoefs ec = new EarthCoefs();
+      EarthXyzFuncs ef = new EarthXyzFuncs();
+
+      for (int i = 0; i < TestData.JDN.length; i++) {
+         double t = TestData.JDN[i];
+
+         double expResult = ef.Y0(t);
+
+         double[][] AY = ec.createAY();
+         double[][] BY = ec.createBY();
+         double[][] CY = ec.createCY();
+         double result = Coefs.Y0(t, AY, BY, CY);
+
+         System.out.println("testY0: expResult = " + expResult);
+         System.out.println("testY0: result    = " + result);
+
+         assertTrue(TestData.scaledComparison(expResult, result, CoefsTest.EPS));
+      }
+   }
+
+   /**
+    * Test of Y1 method, of class Coefs.
+    */
+   @Test
+   public void testY1() {
+      System.out.println("Y1");
+      
+      EarthCoefs ec = new EarthCoefs();
+      EarthXyzFuncs ef = new EarthXyzFuncs();
+
+      for (int i = 0; i < TestData.JDN.length; i++) {
+         double t = TestData.JDN[i];
+
+         double expResult = ef.Y1(t);
+
+         double[][] AY = ec.createAY();
+         double[][] BY = ec.createBY();
+         double[][] CY = ec.createCY();
+         double result = Coefs.Y1(t, AY, BY, CY);
+
+         System.out.println("testY1: expResult = " + expResult);
+         System.out.println("testY1: result    = " + result);
+
+         assertTrue(TestData.scaledComparison(expResult, result, CoefsTest.EPS));
+      }
+   }
+
+   /**
+    * Test of Y2 method, of class Coefs.
+    */
+   @Test
+   public void testY2() {
+      
+      EarthCoefs ec = new EarthCoefs();
+      EarthXyzFuncs ef = new EarthXyzFuncs();
+
+      for (int i = 0; i < TestData.JDN.length; i++) {
+         double t = TestData.JDN[i];
+
+         double expResult = ef.Y2(t);
+
+         double[][] AY = ec.createAY();
+         double[][] BY = ec.createBY();
+         double[][] CY = ec.createCY();
+         double result = Coefs.Y2(t, AY, BY, CY);
+
+         System.out.println("testY2: expResult = " + expResult);
+         System.out.println("testY2: result    = " + result);
+
+         assertTrue(TestData.scaledComparison(expResult, result, CoefsTest.EPS));
+      }
+   }
+
+   /**
+    * Test of Y3 method, of class Coefs.
+    */
+   @Test
+   public void testY3() {
+      System.out.println("Y3");
+      
+      EarthCoefs ec = new EarthCoefs();
+      EarthXyzFuncs ef = new EarthXyzFuncs();
+
+      for (int i = 0; i < TestData.JDN.length; i++) {
+         double t = TestData.JDN[i];
+
+         double expResult = ef.Y3(t);
+
+         double[][] AY = ec.createAY();
+         double[][] BY = ec.createBY();
+         double[][] CY = ec.createCY();
+         double result = Coefs.Y3(t, AY, BY, CY);
+
+         System.out.println("testY3: expResult = " + expResult);
+         System.out.println("testY3: result    = " + result);
+
+         assertTrue(TestData.scaledComparison(expResult, result, CoefsTest.EPS));
+      }
+   }
+
+   /**
+    * Test of Y4 method, of class Coefs.
+    */
+   @Test
+   public void testY4() {
+      System.out.println("Y4");
+      
+      EarthCoefs ec = new EarthCoefs();
+      EarthXyzFuncs ef = new EarthXyzFuncs();
+
+      for (int i = 0; i < TestData.JDN.length; i++) {
+         double t = TestData.JDN[i];
+
+         double expResult = ef.Y4(t);
+
+         double[][] AY = ec.createAY();
+         double[][] BY = ec.createBY();
+         double[][] CY = ec.createCY();
+         double result = Coefs.Y4(t, AY, BY, CY);
+
+         System.out.println("testY4: expResult = " + expResult);
+         System.out.println("testY4: result    = " + result);
+
+         assertTrue(TestData.scaledComparison(expResult, result, CoefsTest.EPS));
+      }
+   }
+
+   /**
+    * Test of Y5 method, of class Coefs.
+    */
+   @Test
+   public void testY5() {
+      System.out.println("Y5");
+      
+      EarthCoefs ec = new EarthCoefs();
+      EarthXyzFuncs ef = new EarthXyzFuncs();
+
+      for (int i = 0; i < TestData.JDN.length; i++) {
+         double t = TestData.JDN[i];
+
+         double expResult = ef.Y5(t);
+
+         double[][] AY = ec.createAY();
+         double[][] BY = ec.createBY();
+         double[][] CY = ec.createCY();
+         double result = Coefs.Y5(t, AY, BY, CY);
+
+         System.out.println("testY5: expResult = " + expResult);
+         System.out.println("testY5: result    = " + result);
+
+         assertTrue(TestData.scaledComparison(expResult, result, CoefsTest.EPS));
+      }
+   }
+
 }

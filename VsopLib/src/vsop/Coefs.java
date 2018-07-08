@@ -24,7 +24,7 @@ public class Coefs {
 
    public static final int NUMXYZ = 3;
 
-   public static enum Xyz {
+   public static enum Axsis {
       X, Y, Z
    }
 
@@ -44,7 +44,7 @@ public class Coefs {
          System.out.println("INFO Coefs: X" + n + "    = " + X);
          EarthXyzFuncs exf = new EarthXyzFuncs();
          double Xexf = 0;
-         Xexf = exf.byName(Xyz.X, n, t);
+         Xexf = exf.byName(Axsis.X, n, t);
          System.out.println("INFO Coefs: Xexf" + n + " = " + Xexf);
          System.out.println("INFO Coefs: diff = " + Math.abs(X - Xexf));
           */
@@ -58,16 +58,16 @@ public class Coefs {
       double Y = 0;
 
       for (int n = 0; n < NUMGROUPS; n++) {
-       double sum = 0;
+         double sum = 0;
          for (int j = 0; j < AY[n].length; j++) {
-            Y += AY[n][j] * Math.cos(BY[n][j] + (BY[n][j] * t));
+            sum += AY[n][j] * Math.cos(BY[n][j] + (CY[n][j] * t));
          }
          sum *= Math.pow(t, n);
          Y += sum;
-                 System.out.println("INFO Coefs: Y" + n + "    = " + Y);
+         System.out.println("INFO Coefs: Y" + n + "    = " + Y);
          EarthXyzFuncs exf = new EarthXyzFuncs();
          double Yexf = 0;
-         Yexf = exf.byName(Xyz.Y, n, t);
+         Yexf = exf.byName(Axsis.Y, n, t);
          System.out.println("INFO Coefs: Yexf" + n + " = " + Yexf);
          System.out.println("INFO Coefs: diff = " + Math.abs(Y - Yexf));
 
@@ -82,7 +82,7 @@ public class Coefs {
       for (int n = 0; n < NUMGROUPS; n++) {
          double sum = 0;
          for (int j = 0; j < AZ[n].length; j++) {
-            Z += AZ[n][j] * Math.cos(BZ[n][j] + (CZ[n][j] * t));
+            sum += AZ[n][j] * Math.cos(BZ[n][j] + (CZ[n][j] * t));
          }
          sum *= Math.pow(t, n);
          Z += sum;
@@ -169,6 +169,78 @@ public class Coefs {
       X5 *= Math.pow(t, n);
 
       return X5;
+   }
+
+   public static double Y0(double t, double[][] AY, double[][] BY, double[][] CY) {
+      double Y0 = 0;
+
+      int n = 0;
+      for (int j = 0; j < AY[n].length; j++) {
+         Y0 += AY[n][j] * Math.cos(BY[n][j] + (CY[n][j] * t));
+      }
+      Y0 *= Math.pow(t, n);
+
+      return Y0;
+   }
+
+   public static double Y1(double t, double[][] AY, double[][] BY, double[][] CY) {
+      double Y1 = 0;
+
+      int n = 1;
+      for (int j = 0; j < AY[n].length; j++) {
+         Y1 += AY[n][j] * Math.cos(BY[n][j] + (CY[n][j] * t));
+      }
+      Y1 *= Math.pow(t, n);
+
+      return Y1;
+   }
+
+   public static double Y2(double t, double[][] AY, double[][] BY, double[][] CY) {
+      double Y2 = 0;
+
+      int n = 2;
+      for (int j = 0; j < AY[n].length; j++) {
+         Y2 += AY[n][j] * Math.cos(BY[n][j] + (CY[n][j] * t));
+      }
+      Y2 *= Math.pow(t, n);
+
+      return Y2;
+   }
+
+   public static double Y3(double t, double[][] AY, double[][] BY, double[][] CY) {
+      double Y3 = 0;
+
+      int n = 3;
+      for (int j = 0; j < AY[n].length; j++) {
+         Y3 += AY[n][j] * Math.cos(BY[n][j] + (CY[n][j] * t));
+      }
+      Y3 *= Math.pow(t, n);
+
+      return Y3;
+   }
+
+   public static double Y4(double t, double[][] AY, double[][] BY, double[][] CY) {
+      double Y4 = 0;
+
+      int n = 4;
+      for (int j = 0; j < AY[n].length; j++) {
+         Y4 += AY[n][j] * Math.cos(BY[n][j] + (CY[n][j] * t));
+      }
+      Y4 *= Math.pow(t, n);
+
+      return Y4;
+   }
+
+   public static double Y5(double t, double[][] AY, double[][] BY, double[][] CY) {
+      double Y5 = 0;
+
+      int n = 5;
+      for (int j = 0; j < AY[n].length; j++) {
+         Y5 += AY[n][j] * Math.cos(BY[n][j] + (CY[n][j] * t));
+      }
+      Y5 *= Math.pow(t, n);
+
+      return Y5;
    }
 
    public Coefs() {

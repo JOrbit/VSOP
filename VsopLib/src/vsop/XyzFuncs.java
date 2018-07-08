@@ -65,9 +65,9 @@ public abstract class XyzFuncs {
       return Z;
    }
 
-   public double byName(Coefs.Xyz axis, int level, double t) {
+   public double byName(Coefs.Axsis axis, int level, double t) {
       double xyz = 0;
-      if (axis == Coefs.Xyz.X) {
+      if (axis == Coefs.Axsis.X) {
          if (level == 0) {
             xyz = this.X0(t);
          }
@@ -88,7 +88,7 @@ public abstract class XyzFuncs {
          }
       }
 
-      if (axis == Coefs.Xyz.Y) {
+      if (axis == Coefs.Axsis.Y) {
          if (level == 0) {
             xyz = this.Y0(t);
          }
@@ -109,7 +109,7 @@ public abstract class XyzFuncs {
          }
       }
 
-      if (axis == Coefs.Xyz.Z) {
+      if (axis == Coefs.Axsis.Z) {
          if (level == 0) {
             xyz = this.Z0(t);
          }
