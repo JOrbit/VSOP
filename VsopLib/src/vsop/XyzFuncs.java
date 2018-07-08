@@ -65,4 +65,72 @@ public abstract class XyzFuncs {
       return Z;
    }
 
+   public double byName(Coefs.Xyz axis, int level, double t) {
+      double xyz = 0;
+      if (axis == Coefs.Xyz.X) {
+         if (level == 0) {
+            xyz = this.X0(t);
+         }
+         if (level == 1) {
+            xyz = this.X1(t);
+         }
+         if (level == 2) {
+            xyz = this.X2(t);
+         }
+         if (level == 3) {
+            xyz = this.X3(t);
+         }
+         if (level == 4) {
+            xyz = this.X4(t);
+         }
+         if (level == 5) {
+            xyz = this.X5(t);
+         }
+      }
+
+      if (axis == Coefs.Xyz.Y) {
+         if (level == 0) {
+            xyz = this.Y0(t);
+         }
+         if (level == 1) {
+            xyz = this.Y1(t);
+         }
+         if (level == 2) {
+            xyz = this.Y2(t);
+         }
+         if (level == 3) {
+            xyz = this.Y3(t);
+         }
+         if (level == 4) {
+            xyz = this.Y4(t);
+         }
+         if (level == 5) {
+            xyz = this.Y5(t);
+         }
+      }
+
+      if (axis == Coefs.Xyz.Z) {
+         if (level == 0) {
+            xyz = this.Z0(t);
+         }
+         if (level == 1) {
+            xyz = this.Z1(t);
+         }
+         if (level == 2) {
+            xyz = this.Z2(t);
+         }
+         if (level == 3) {
+            xyz = this.Z3(t);
+         }
+         if (level == 4) {
+            xyz = this.Z4(t);
+         }
+         if (level == 5) {
+            xyz = this.Z5(t);
+         }
+      }
+
+      return xyz;
+   }
+
 }

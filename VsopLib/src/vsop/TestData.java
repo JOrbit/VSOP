@@ -5,6 +5,8 @@
  */
 package vsop;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author owner
@@ -35,9 +37,50 @@ public class TestData {
    public static final double[] Y = {
       0.9672416237, 0.9650688844, 0.9627974368, 0.9603579954, 0.9578483181
    };
-   
+
    public static final double[] Z = {
       -0.0000039000, 0.0002150325, 0.0004307602, 0.0006472929, 0.0008568250
    };
+
+   public static boolean scaledComparison(double a, double b, double epsilon) {
+      boolean rc = false;
+
+      double[] aSigExp = TestData.getSigExp(a);
+      double[] bSigExp = TestData.getSigExp(b);
+
+      if (aSigExp[1] == bSigExp[1]) {
+         double diff = Math.abs(aSigExp[0] - bSigExp[0]);
+         if (diff < epsilon) {
+            System.out.println("INFO TestData.scaledComparison diff = " + diff);
+            rc = true;
+         }
+      }
+
+      return rc;
+   }
+
+   public static double[] getSigExp(double d) {
+      double[] sigExp = new double[2];
+
+      Double dd = d;
+      String sd = dd.toString();
+
+      //System.out.println("INFO TestData: d = " + d);
+      //System.out.println("INFO TestData: sd = " + sd);
+
+      sigExp[1] = 0;
+      String[] tokens = sd.split("E");
+      sigExp[0] = Double.parseDouble(tokens[0]);
+
+      //System.out.println("INFO TestData: sigExp[0] = " + sigExp[0]);
+
+      if (tokens.length > 1) {
+         sigExp[1] = Double.parseDouble(tokens[1]);
+      }
+
+      //System.out.println("INFO TestData: sigExp[1] = " + sigExp[1]);
+
+      return sigExp;
+   }
 
 }

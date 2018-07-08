@@ -16,8 +16,6 @@ public class EarthXyzFuncs extends XyzFuncs {
    public EarthXyzFuncs() {
    }
 
-   
-
    /*
 
    EARTH - VSOP87 Series Version A
@@ -3696,5 +3694,5 @@ public class EarthXyzFuncs extends XyzFuncs {
       Z5 += 0.00000000035;
       return Z5 * t * t * t * t * t;
    }
-
+   
 }
