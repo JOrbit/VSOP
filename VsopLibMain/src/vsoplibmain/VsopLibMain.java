@@ -15,19 +15,11 @@ import java.util.Random;
  * @author owner
  */
 public class VsopLibMain {
-
-   public enum Planets {
-      MERCURY, VENUS, EARTH, MARS,
-      JUPITER, SATURN, URANUS, NEPTUNE
-   }
-
-   
+ 
    /**
     * @param args the command line arguments
     */
    public static void main(String[] args) {
-
-      
 
       timeLocalDateJdn();
 

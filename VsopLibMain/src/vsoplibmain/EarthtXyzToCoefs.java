@@ -30,9 +30,9 @@ public class EarthtXyzToCoefs {
 
             FileWriter coefsFW = new FileWriter(COFPATHNAM);
             String output = null;
-            List<Double> aDoubles = new ArrayList();
-            List<Double> bDoubles = new ArrayList();
-            List<Double> cDoubles = new ArrayList();
+            List<String> aStrings = new ArrayList();
+            List<String> bStrings = new ArrayList();
+            List<String> cStrings = new ArrayList();
             FileReader xyzFR = new FileReader(XYZPATHNAM);
             BufferedReader br = new BufferedReader(xyzFR);
             String line;
@@ -42,22 +42,16 @@ public class EarthtXyzToCoefs {
 //                  System.out.println("\n");
                      while (((line = br.readLine()) != null) && (!line.contains("return"))) {
 
+                        // System.out.println("line = " + line + "\n");
                         String[] tokens = line.trim().split(" ");
-//                     for (int i = 0; i < tokens.length; i++) {
-//                        System.out.println("tokens[" + i + "] = " + tokens[i]);
-//                     }
-//                        function = tokens[0].substring(0, 1);
-//                     System.out.println("function = " + function);
-//                        number = tokens[0].substring(1);
-//                     System.out.println("number = " + number);
                         String aValue;
                         if (tokens[1].contains("-")) {
                            aValue = "-" + tokens[2].replace(";", "");
                         } else {
                            aValue = tokens[2].replace(";", "");
                         }
-//                    System.out.println("aValue = " + aValue);                   
-                        aDoubles.add(Double.parseDouble(aValue));
+                        // System.out.println("aValue = " + aValue);
+                        aStrings.add(aValue);
                         String bValue = "0";
                         String cValue = "0";
                         if (line.contains("cos")) {
@@ -66,25 +60,25 @@ public class EarthtXyzToCoefs {
                            cValue = tokens[6];
 //                        System.out.println("cValue = " + cValue);
                         }
-                        bDoubles.add(Double.parseDouble(bValue));
-                        cDoubles.add(Double.parseDouble(cValue));
+                        bStrings.add(bValue);
+                        cStrings.add(cValue);
 
                      }
 
                   }
                }
             }
-            for (double ad : aDoubles) {
+            for (String ad : aStrings) {
                output = ad + "\n";
                coefsFW.write(output);
 
             }
-            for (double bd : bDoubles) {
+            for (String bd : bStrings) {
                output = bd + "\n";
                coefsFW.write(output);
 
             }
-            for (double cd : cDoubles) {
+            for (String cd : cStrings) {
                output = cd + "\n";
                coefsFW.write(output);
 
