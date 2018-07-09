@@ -17,10 +17,10 @@ import java.util.logging.Logger;
  *
  * @author owner
  */
-public class EarthtXyzToCoefs {
+public class GeneratedToArrays {
 
-   public static final String XYZPATHNAM = "D:\\JOrbit\\VSOP\\VsopLib\\src\\vsop\\EarthXyzFuncs.java";
-   public static final String COFPATHNAM = "D:\\JOrbit\\VSOP\\VsopLib\\src\\vsop\\EarthCoefs.txt";
+   public static final String XYZPATHNAM = "D:\\JOrbit\\VSOP\\VsopLib\\src\\vsop\\EarthCoefsGenerated.java";
+   public static final String COFPATHNAM = "D:\\JOrbit\\VSOP\\VsopLib\\src\\vsop\\EarthCoefsArrays.txt";
 
    public static class FuncNumKey {
 
@@ -90,7 +90,7 @@ public class EarthtXyzToCoefs {
             xyzFR.close();
 
          } catch (Exception ex) {
-            Logger.getLogger(EarthtXyzToCoefs.class
+            Logger.getLogger(GeneratedToArrays.class
                     .getName()).log(Level.SEVERE, null, ex);
          }
       }
