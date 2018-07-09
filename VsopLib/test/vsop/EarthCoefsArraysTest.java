@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author owner
  */
-public class EarthCoefsTest {
+public class EarthCoefsArraysTest {
 
-   public EarthCoefsTest() {
+   public EarthCoefsArraysTest() {
    }
 
    @BeforeClass
@@ -40,37 +40,37 @@ public class EarthCoefsTest {
 
    @Test
    public void testSomeMethod() {
-      EarthCoefs earthCoefs = new EarthCoefs();
+      EarthCoefsArrays earthCoefs = new EarthCoefsArrays();
       System.out.println("earthCoefs.getCoefs().size() = " + earthCoefs.getCoefs().size());
       int terms = 0;
-      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
-         terms += 3 * (EarthCoefs.XTERMS[i] + EarthCoefs.YTERMS[i] + EarthCoefs.ZTERMS[i]);
+      for (int i = 0; i < CoefsArrays.NUMGROUPS; i++) {
+         terms += 3 * (EarthCoefsArrays.XTERMS[i] + EarthCoefsArrays.YTERMS[i] + EarthCoefsArrays.ZTERMS[i]);
       }
       System.out.println("terms = " + terms);
    }
 
    /**
-    * Test of createAX method, of class EarthCoefs.
+    * Test of createAX method, of class EarthCoefsArrays.
     */
    @Test
    public void testCreateAX() {
       System.out.println("createAX");
-      EarthCoefs instance = new EarthCoefs();
+      EarthCoefsArrays instance = new EarthCoefsArrays();
       double[][] result = instance.createAX();
-      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
-         for (int j = 0; j < EarthCoefs.XTERMS[i]; j++) {
+      for (int i = 0; i < CoefsArrays.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefsArrays.XTERMS[i]; j++) {
             System.out.println("AX[" + i + "][" + j + "] = " + result[i][j]);
          }
       }
    }
 
    /**
-    * Test of getCoefs method, of class EarthCoefs.
+    * Test of getCoefs method, of class EarthCoefsArrays.
     */
    @Test
    public void testGetCoefs() {
       System.out.println("getCoefs");
-      EarthCoefs instance = new EarthCoefs();
+      EarthCoefsArrays instance = new EarthCoefsArrays();
       List<Double> expResult = null;
       //     List<Double> result = instance.getCoefs();
       //   assertEquals(expResult, result);
@@ -78,15 +78,15 @@ public class EarthCoefsTest {
    }
 
    /**
-    * Test of createAY method, of class EarthCoefs.
+    * Test of createAY method, of class EarthCoefsArrays.
     */
    @Test
    public void testCreateAY() {
       System.out.println("createAY");
-      EarthCoefs instance = new EarthCoefs();
+      EarthCoefsArrays instance = new EarthCoefsArrays();
       double[][] result = instance.createAY();
-      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
-         for (int j = 0; j < EarthCoefs.YTERMS[i]; j++) {
+      for (int i = 0; i < CoefsArrays.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefsArrays.YTERMS[i]; j++) {
             System.out.println("AY[" + i + "][" + j + "] = " + result[i][j]);
          }
       }
@@ -94,105 +94,105 @@ public class EarthCoefsTest {
    }
 
    /**
-    * Test of createAZ method, of class EarthCoefs.
+    * Test of createAZ method, of class EarthCoefsArrays.
     */
    @Test
    public void testCreateAZ() {
       System.out.println("createAZ");
-      EarthCoefs instance = new EarthCoefs();
+      EarthCoefsArrays instance = new EarthCoefsArrays();
       double[][] result = instance.createAZ();
-      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
-         for (int j = 0; j < EarthCoefs.ZTERMS[i]; j++) {
+      for (int i = 0; i < CoefsArrays.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefsArrays.ZTERMS[i]; j++) {
             System.out.println("AZ[" + i + "][" + j + "] = " + result[i][j]);
          }
       }
    }
 
    /**
-    * Test of createBX method, of class EarthCoefs.
+    * Test of createBX method, of class EarthCoefsArrays.
     */
    @Test
    public void testCreateBX() {
       System.out.println("createBX");
-      EarthCoefs instance = new EarthCoefs();
+      EarthCoefsArrays instance = new EarthCoefsArrays();
       double[][] result = instance.createBX();
-      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
-         for (int j = 0; j < EarthCoefs.XTERMS[i]; j++) {
+      for (int i = 0; i < CoefsArrays.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefsArrays.XTERMS[i]; j++) {
             System.out.println("BX[" + i + "][" + j + "] = " + result[i][j]);
          }
       }
    }
 
    /**
-    * Test of createBY method, of class EarthCoefs.
+    * Test of createBY method, of class EarthCoefsArrays.
     */
    @Test
    public void testCreateBY() {
       System.out.println("createBY");
-      EarthCoefs instance = new EarthCoefs();
+      EarthCoefsArrays instance = new EarthCoefsArrays();
       double[][] result = instance.createBY();
-      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
-         for (int j = 0; j < EarthCoefs.YTERMS[i]; j++) {
+      for (int i = 0; i < CoefsArrays.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefsArrays.YTERMS[i]; j++) {
             System.out.println("BY[" + i + "][" + j + "] = " + result[i][j]);
          }
       }
    }
 
    /**
-    * Test of createBZ method, of class EarthCoefs.
+    * Test of createBZ method, of class EarthCoefsArrays.
     */
    @Test
    public void testCreateBZ() {
       System.out.println("createBZ");
-      EarthCoefs instance = new EarthCoefs();
+      EarthCoefsArrays instance = new EarthCoefsArrays();
       double[][] result = instance.createBZ();
-      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
-         for (int j = 0; j < EarthCoefs.ZTERMS[i]; j++) {
+      for (int i = 0; i < CoefsArrays.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefsArrays.ZTERMS[i]; j++) {
             System.out.println("BZ[" + i + "][" + j + "] = " + result[i][j]);
          }
       }
    }
 
    /**
-    * Test of createCX method, of class EarthCoefs.
+    * Test of createCX method, of class EarthCoefsArrays.
     */
    @Test
    public void testCreateCX() {
       System.out.println("createCX");
-      EarthCoefs instance = new EarthCoefs();
+      EarthCoefsArrays instance = new EarthCoefsArrays();
       double[][] result = instance.createCX();
-      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
-         for (int j = 0; j < EarthCoefs.XTERMS[i]; j++) {
+      for (int i = 0; i < CoefsArrays.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefsArrays.XTERMS[i]; j++) {
             System.out.println("CX[" + i + "][" + j + "] = " + result[i][j]);
          }
       }
    }
 
    /**
-    * Test of createCY method, of class EarthCoefs.
+    * Test of createCY method, of class EarthCoefsArrays.
     */
    @Test
    public void testCreateCY() {
       System.out.println("createCY");
-      EarthCoefs instance = new EarthCoefs();
+      EarthCoefsArrays instance = new EarthCoefsArrays();
       double[][] result = instance.createCY();
-      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
-         for (int j = 0; j < EarthCoefs.YTERMS[i]; j++) {
+      for (int i = 0; i < CoefsArrays.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefsArrays.YTERMS[i]; j++) {
             System.out.println("CY[" + i + "][" + j + "] = " + result[i][j]);
          }
       }
    }
 
    /**
-    * Test of createCZ method, of class EarthCoefs.
+    * Test of createCZ method, of class EarthCoefsArrays.
     */
    @Test
    public void testCreateCZ() {
       System.out.println("createCZ");
-      EarthCoefs instance = new EarthCoefs();
+      EarthCoefsArrays instance = new EarthCoefsArrays();
       double[][] result = instance.createCZ();
-      for (int i = 0; i < Coefs.NUMGROUPS; i++) {
-         for (int j = 0; j < EarthCoefs.ZTERMS[i]; j++) {
+      for (int i = 0; i < CoefsArrays.NUMGROUPS; i++) {
+         for (int j = 0; j < EarthCoefsArrays.ZTERMS[i]; j++) {
             System.out.println("CZ[" + i + "][" + j + "] = " + result[i][j]);
          }
       }

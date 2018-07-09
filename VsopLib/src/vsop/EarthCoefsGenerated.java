@@ -9,11 +9,11 @@ package vsop;
  *
  * @author owner
  */
-public class EarthXyzFuncs extends XyzFuncs {
+public class EarthCoefsGenerated extends CoefsGenerated {
    
    
 
-   public EarthXyzFuncs() {
+   public EarthCoefsGenerated() {
    }
 
    /*

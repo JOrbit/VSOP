@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  *
  * @author owner
  */
-public class EarthXyzFuncsTest {
+public class EarthCoefsGeneratedTest {
 
    @BeforeClass
    public static void setUpClass() {
@@ -35,13 +35,13 @@ public class EarthXyzFuncsTest {
    }
 
    /**
-    * Test of Earth_X0 method, of class EarthXyzFuncs.
+    * Test of Earth_X0 method, of class EarthCoefsGenerated.
     */
    @Test
    public void testEarthXYZ() {
 
       System.out.println("testEarthXYZ");
-      EarthXyzFuncs earthXyzFuncs = new EarthXyzFuncs();
+      EarthCoefsGenerated earthXyzFuncs = new EarthCoefsGenerated();
 
       for (int i = 0; i < TestData.YYYY.length; i++) {
          int jdn = TestData.JDN[i];
@@ -86,7 +86,7 @@ public class EarthXyzFuncsTest {
       System.out.println("t = " + t);
 
       System.out.println("Run 5 XYZ parameters.");
-      EarthXyzFuncsTest.xYZParameters(t);
+      EarthCoefsGeneratedTest.xYZParameters(t);
 
       System.out.println("Tesing for 06/01/2000 12:00:00");
 
@@ -99,14 +99,14 @@ public class EarthXyzFuncsTest {
       System.out.println("t = " + t);
 
       System.out.println("Run 5 XYZ parameters.");
-      EarthXyzFuncsTest.xYZParameters(t);
+      EarthCoefsGeneratedTest.xYZParameters(t);
 
    }
 
    public static void xYZParameters(double t) {
       System.out.println("Test_X");
 
-      EarthXyzFuncs earthXyzFuncs = new EarthXyzFuncs();
+      EarthCoefsGenerated earthXyzFuncs = new EarthCoefsGenerated();
 
       double result = earthXyzFuncs.X(t);
       System.out.println("result = " + result);

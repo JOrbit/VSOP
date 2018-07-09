@@ -9,7 +9,7 @@ package vsop;
  *
  * @author owner
  */
-public class Coefs {
+public class CoefsArrays {
 
    public static enum Planets {
       MERCURY, VENUS, EARTH, MARS,
@@ -41,12 +41,12 @@ public class Coefs {
          sum *= Math.pow(t, n);
          X += sum;
          /*
-         System.out.println("INFO Coefs: X" + n + "    = " + X);
-         EarthXyzFuncs exf = new EarthXyzFuncs();
+         System.out.println("INFO CoefsArrays: X" + n + "    = " + X);
+         EarthCoefsGenerated exf = new EarthCoefsGenerated();
          double Xexf = 0;
          Xexf = exf.byName(Axsis.X, n, t);
-         System.out.println("INFO Coefs: Xexf" + n + " = " + Xexf);
-         System.out.println("INFO Coefs: diff = " + Math.abs(X - Xexf));
+         System.out.println("INFO CoefsArrays: Xexf" + n + " = " + Xexf);
+         System.out.println("INFO CoefsArrays: diff = " + Math.abs(X - Xexf));
           */
 
       }
@@ -65,7 +65,7 @@ public class Coefs {
          sum *= Math.pow(t, n);
          Y += sum;
          System.out.println("INFO Coefs: Y" + n + "    = " + Y);
-         EarthXyzFuncs exf = new EarthXyzFuncs();
+         EarthCoefsGenerated exf = new EarthCoefsGenerated();
          double Yexf = 0;
          Yexf = exf.byName(Axsis.Y, n, t);
          System.out.println("INFO Coefs: Yexf" + n + " = " + Yexf);
@@ -243,7 +243,7 @@ public class Coefs {
       return Y5;
    }
 
-   public Coefs() {
+   public CoefsArrays() {
    }
 
 }
