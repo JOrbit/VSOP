@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vsop;
+package vsop.arrays;
 
-import java.math.BigDecimal;
+import vsop.generated.EarthCoefsGenerated;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import vsop.TestData;
 import static org.junit.Assert.*;
 
 /**

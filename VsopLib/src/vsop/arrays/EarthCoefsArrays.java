@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vsop;
+package vsop.arrays;
 
+import vsop.arrays.CoefsArrays;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class EarthCoefsArrays {
 
-   public static final String COEFPATHNAM = "D:\\JOrbit\\VSOP\\VsopLib\\src\\vsop\\EarthCoefsArrays.txt";
+   public static final String COEFPATHNAM = "D:\\JOrbit\\VSOP\\VsopLib\\src\\vsop\\arrays\\EarthCoefsArrays.txt";
 
    public static final int[] XTERMS = {843, 491, 204, 18, 15, 6};
    public static final int[] YTERMS = {854, 496, 202, 17, 15, 6};

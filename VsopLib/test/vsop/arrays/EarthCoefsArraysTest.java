@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vsop;
+package vsop.arrays;
 
+import vsop.arrays.EarthCoefsArrays;
+import vsop.arrays.CoefsArrays;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
