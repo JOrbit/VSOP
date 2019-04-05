@@ -71,14 +71,14 @@ public class DateFuncs {
 
    public static int getApiUsnoNavyJDN(int year, int month, int day) {
       int jdn = Integer.MAX_VALUE;
-      String urlString = "http://api.usno.navy.mil/"
+      String urlString = "https://api.usno.navy.mil/"
               + "jdconverter?date=M/D/Y&time=12:00:00";
 
       urlString = urlString.replaceFirst("M", Integer.toString(month));
       urlString = urlString.replaceFirst("D", Integer.toString(day));
       urlString = urlString.replaceFirst("Y", Integer.toString(year));
 
-      //System.out.println("urlString = " + urlString);
+      // System.out.println("urlString = " + urlString);
       HttpURLConnection connection = null;
 
       try {
