@@ -9,13 +9,15 @@ import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Random;
+import vsop.generated.CoefsGenerated;
+import vsop.generated.EarthCoefsGenerated;
 
 /**
  *
  * @author owner
  */
 public class VsopLibMain {
- 
+
    /**
     * @param args the command line arguments
     */
@@ -29,6 +31,8 @@ public class VsopLibMain {
 
       int jdn = vsop.DateFuncs.getApiUsnoNavyJDN(2000, 1, 1);
       System.out.println("jdn = " + jdn);
+
+      timeEarthCoefsGenerated();
 
    }
 
@@ -126,6 +130,29 @@ public class VsopLibMain {
          }
       }
       System.out.println("End: testLocalDateVsjND");
+   }
+
+   public static void timeEarthCoefsGenerated() {
+
+      System.out.println("Start: timeEarthCoefsGenerated");
+
+      CoefsGenerated ecg = new EarthCoefsGenerated();
+      double jd = 2458578.0;
+
+      long start = System.currentTimeMillis();
+
+      for (int i = 0; i < 10000; i++) {
+         double x = ecg.X(jd);
+         double y = ecg.Y(jd);
+         double z = ecg.Z(jd);
+         jd += 3.1415;
+      }
+
+      long end = System.currentTimeMillis();
+      int elapsed = (int) (end - start);
+      System.out.println("timeEarthCoefsGenerated elapsed = " + elapsed);
+
+      System.out.println("End: timeEarthCoefsGenerated");
    }
 
 }
