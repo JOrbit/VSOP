@@ -12,7 +12,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import vsop.DateFuncs;
-import vsop.TestData;
 import static org.junit.Assert.*;
 
 /**
@@ -46,24 +45,24 @@ public class EarthCoefsGeneratedTest {
       System.out.println("testEarthXYZ");
       EarthCoefsGenerated earthXyzFuncs = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.YYYY.length; i++) {
-         int jdn = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.YYYY.length; i++) {
+         int jdn = EarthCoordTestValues.JDN[i];
          double t = DateFuncs.t(jdn);
          double result = earthXyzFuncs.X(t);
          //System.out.println("X result = " + result);
-         double expResult = TestData.X[i];
+         double expResult = EarthCoordTestValues.X[i];
          //System.out.println("expResult = " + expResult);
          assertEquals(expResult, result, 0.0000000001);
 
          result = earthXyzFuncs.Y(t);
          //System.out.println("Y result = " + result);
-         expResult = TestData.Y[i];
+         expResult = EarthCoordTestValues.Y[i];
          //System.out.println("expResult = " + expResult);
          assertEquals(expResult, result, 0.0000000001);
 
          result = earthXyzFuncs.Z(t);
          //System.out.println("Z result = " + result);
-         expResult = TestData.Z[i];
+         expResult = EarthCoordTestValues.Z[i];
          //System.out.println("expResult = " + expResult);
          assertEquals(expResult, result, 0.0000000001);
 

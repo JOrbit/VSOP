@@ -11,7 +11,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import vsop.TestData;
+import vsop.generated.EarthCoordTestValues;
 import static org.junit.Assert.*;
 
 /**
@@ -62,8 +62,8 @@ public class CoefsArraysTest {
       System.out.println("X");
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
          double expResult = ef.X(t);
          double[][] AX = ec.createAX();
          double[][] BX = ec.createBX();
@@ -73,7 +73,7 @@ public class CoefsArraysTest {
          System.out.println("testX: expResult = " + expResult);
          System.out.println("testX: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 
@@ -85,8 +85,8 @@ public class CoefsArraysTest {
       System.out.println("Y");
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
          double expResult = ef.Y(t);
          double[][] AY = ec.createAY();
          double[][] BY = ec.createBY();
@@ -96,7 +96,7 @@ public class CoefsArraysTest {
          System.out.println("testY: expResult = " + expResult);
          System.out.println("testY: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 
@@ -108,8 +108,8 @@ public class CoefsArraysTest {
       System.out.println("Z");
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
          double expResult = ef.Z(t);
          double[][] AZ = ec.createAZ();
          double[][] BZ = ec.createBZ();
@@ -119,7 +119,7 @@ public class CoefsArraysTest {
          System.out.println("testZ: expResult = " + expResult);
          System.out.println("testZ: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 
@@ -146,8 +146,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.X0(t);
 
@@ -159,7 +159,7 @@ public class CoefsArraysTest {
          System.out.println("testX0: expResult = " + expResult);
          System.out.println("testX0: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 
@@ -173,8 +173,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.X1(t);
 
@@ -186,7 +186,7 @@ public class CoefsArraysTest {
          System.out.println("testX1: expResult = " + expResult);
          System.out.println("testX1: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 
@@ -200,8 +200,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.X2(t);
 
@@ -213,7 +213,7 @@ public class CoefsArraysTest {
          System.out.println("testX2: expResult = " + expResult);
          System.out.println("testX2: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
 
    }
@@ -228,8 +228,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.X3(t);
 
@@ -241,7 +241,7 @@ public class CoefsArraysTest {
          System.out.println("testX3: expResult = " + expResult);
          System.out.println("testX3: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
 
    }
@@ -255,8 +255,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.X4(t);
 
@@ -268,7 +268,7 @@ public class CoefsArraysTest {
          System.out.println("testX4: expResult = " + expResult);
          System.out.println("testX4: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
 
    }
@@ -283,8 +283,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.X5(t);
 
@@ -296,7 +296,7 @@ public class CoefsArraysTest {
          System.out.println("testX5: expResult = " + expResult);
          System.out.println("testX5: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 
@@ -310,8 +310,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.Y0(t);
 
@@ -323,7 +323,7 @@ public class CoefsArraysTest {
          System.out.println("testY0: expResult = " + expResult);
          System.out.println("testY0: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 
@@ -337,8 +337,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.Y1(t);
 
@@ -350,7 +350,7 @@ public class CoefsArraysTest {
          System.out.println("testY1: expResult = " + expResult);
          System.out.println("testY1: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 
@@ -363,8 +363,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.Y2(t);
 
@@ -376,7 +376,7 @@ public class CoefsArraysTest {
          System.out.println("testY2: expResult = " + expResult);
          System.out.println("testY2: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 
@@ -390,8 +390,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.Y3(t);
 
@@ -403,7 +403,7 @@ public class CoefsArraysTest {
          System.out.println("testY3: expResult = " + expResult);
          System.out.println("testY3: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 
@@ -417,8 +417,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.Y4(t);
 
@@ -430,7 +430,7 @@ public class CoefsArraysTest {
          System.out.println("testY4: expResult = " + expResult);
          System.out.println("testY4: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 
@@ -444,8 +444,8 @@ public class CoefsArraysTest {
       EarthCoefsArrays ec = new EarthCoefsArrays();
       EarthCoefsGenerated ef = new EarthCoefsGenerated();
 
-      for (int i = 0; i < TestData.JDN.length; i++) {
-         double t = TestData.JDN[i];
+      for (int i = 0; i < EarthCoordTestValues.JDN.length; i++) {
+         double t = EarthCoordTestValues.JDN[i];
 
          double expResult = ef.Y5(t);
 
@@ -457,7 +457,7 @@ public class CoefsArraysTest {
          System.out.println("testY5: expResult = " + expResult);
          System.out.println("testY5: result    = " + result);
 
-         assertTrue(TestData.scaledComparison(expResult, result, CoefsArraysTest.EPS));
+         assertTrue(EarthCoordTestValues.scaledComparison(expResult, result, CoefsArraysTest.EPS));
       }
    }
 

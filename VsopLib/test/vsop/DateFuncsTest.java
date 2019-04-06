@@ -5,6 +5,7 @@
  */
 package vsop;
 
+import vsop.generated.EarthCoordTestValues;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -107,12 +108,12 @@ VSOP87A EARTH     Date=2000 Jan 01 G   Time=12:00:00 TDB   JD=2451545
    public void testJDN() {
       System.out.println("jDN");
 
-      for (int i = 0; i < TestData.YYYY.length; i++) {
-         int year = TestData.YYYY[i];
-         int month = TestData.M[i];
-         int day = TestData.D[i];
+      for (int i = 0; i < EarthCoordTestValues.YYYY.length; i++) {
+         int year = EarthCoordTestValues.YYYY[i];
+         int month = EarthCoordTestValues.M[i];
+         int day = EarthCoordTestValues.D[i];
 
-         int expResult = TestData.JDN[i];
+         int expResult = EarthCoordTestValues.JDN[i];
          int result = DateFuncs.jDN(year, month, day);
 
          System.out.println("i = " + i);
@@ -134,17 +135,17 @@ VSOP87A EARTH     Date=2000 Jan 01 G   Time=12:00:00 TDB   JD=2451545
    public void testJD() {
       System.out.println("jD");
 
-      for (int i = 0; i < TestData.YYYY.length; i++) {
-         int year = TestData.YYYY[i];
-         int month = TestData.M[i];
-         int day = TestData.D[i];
+      for (int i = 0; i < EarthCoordTestValues.YYYY.length; i++) {
+         int year = EarthCoordTestValues.YYYY[i];
+         int month = EarthCoordTestValues.M[i];
+         int day = EarthCoordTestValues.D[i];
          int julianDayNuber = DateFuncs.jDN(year, month, day);
 
-         int hour = TestData.H[i];
-         int minute = TestData.MM[i];
-         double second = TestData.S[i];
+         int hour = EarthCoordTestValues.H[i];
+         int minute = EarthCoordTestValues.MM[i];
+         double second = EarthCoordTestValues.S[i];
 
-         double expResult = TestData.JD[i];
+         double expResult = EarthCoordTestValues.JD[i];
          double result = DateFuncs.jD(julianDayNuber, hour, minute, second);
 
          System.out.println("i = " + i);
@@ -171,18 +172,18 @@ VSOP87A EARTH     Date=2000 Jan 01 G   Time=12:00:00 TDB   JD=2451545
    @Test
    public void testT() {
       System.out.println("t");
-      for (int i = 0; i < TestData.YYYY.length; i++) {
-         int year = TestData.YYYY[i];
-         int month = TestData.M[i];
-         int day = TestData.D[i];
+      for (int i = 0; i < EarthCoordTestValues.YYYY.length; i++) {
+         int year = EarthCoordTestValues.YYYY[i];
+         int month = EarthCoordTestValues.M[i];
+         int day = EarthCoordTestValues.D[i];
          int julianDayNuber = DateFuncs.jDN(year, month, day);
 
-         int hour = TestData.H[i];
-         int minute = TestData.MM[i];
-         double second = TestData.S[i];
+         int hour = EarthCoordTestValues.H[i];
+         int minute = EarthCoordTestValues.MM[i];
+         double second = EarthCoordTestValues.S[i];
          double julianDate = DateFuncs.jD(julianDayNuber, hour, minute, second);
 
-         double expResult = TestData.J2000OFFSET[i];
+         double expResult = EarthCoordTestValues.J2000OFFSET[i];
          double result = DateFuncs.t(julianDate);
 
          System.out.println("i = " + i);

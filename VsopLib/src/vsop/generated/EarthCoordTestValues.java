@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vsop;
+package vsop.generated;
 
 import java.math.BigDecimal;
 
@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  *
  * @author owner
  */
-public class TestData {
+public class EarthCoordTestValues {
 
    /*
    Test data from http://neoprogrammics.com/vsop87/ Coord test values
@@ -50,8 +50,8 @@ public class TestData {
    public static boolean scaledComparison(double a, double b, double epsilon) {
       boolean rc = false;
 
-      double[] aSigExp = TestData.getSigExp(a);
-      double[] bSigExp = TestData.getSigExp(b);
+      double[] aSigExp = EarthCoordTestValues.getSigExp(a);
+      double[] bSigExp = EarthCoordTestValues.getSigExp(b);
 
       if (aSigExp[1] == bSigExp[1]) {
          double diff = Math.abs(aSigExp[0] - bSigExp[0]);
@@ -70,20 +70,20 @@ public class TestData {
       Double dd = d;
       String sd = dd.toString();
 
-      //System.out.println("INFO TestData: d = " + d);
-      //System.out.println("INFO TestData: sd = " + sd);
+      //System.out.println("INFO EarthCoordTestValues: d = " + d);
+      //System.out.println("INFO EarthCoordTestValues: sd = " + sd);
 
       sigExp[1] = 0;
       String[] tokens = sd.split("E");
       sigExp[0] = Double.parseDouble(tokens[0]);
 
-      //System.out.println("INFO TestData: sigExp[0] = " + sigExp[0]);
+      //System.out.println("INFO EarthCoordTestValues: sigExp[0] = " + sigExp[0]);
 
       if (tokens.length > 1) {
          sigExp[1] = Double.parseDouble(tokens[1]);
       }
 
-      //System.out.println("INFO TestData: sigExp[1] = " + sigExp[1]);
+      //System.out.println("INFO EarthCoordTestValues: sigExp[1] = " + sigExp[1]);
 
       return sigExp;
    }
