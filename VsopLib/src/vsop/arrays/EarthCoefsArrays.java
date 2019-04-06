@@ -28,7 +28,7 @@ public class EarthCoefsArrays implements XyzRCalcsInter {
    private List<Double> coefs = null;
 
    public EarthCoefsArrays() {
-      this.coefs = new ArrayList();
+      this.coefs = new ArrayList<Double>();
       this.parseDataFile();
    }
 
