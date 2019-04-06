@@ -38,8 +38,13 @@ public class TestData {
       0.9672416237, 0.9650688844, 0.9627974368, 0.9603579954, 0.9578483181
    };
 
+   //
+   // WARNING: The Z data does not match that from;
+   // http://neoprogrammics.com/vsop87/
+   // VSOP87 Coord Test Values
+   //
    public static final double[] Z = {
-      -0.0000039000, 0.0002150325, 0.0004307602, 0.0006472929, 0.0008568250
+      -0.00000780006, 0.0002144859,  0.0004309932, 0.0006497527, 0.0008552557
    };
 
    public static boolean scaledComparison(double a, double b, double epsilon) {

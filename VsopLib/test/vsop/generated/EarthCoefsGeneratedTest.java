@@ -50,23 +50,24 @@ public class EarthCoefsGeneratedTest {
          int jdn = TestData.JDN[i];
          double t = DateFuncs.t(jdn);
          double result = earthXyzFuncs.X(t);
-         System.out.println("X result = " + result);
+         //System.out.println("X result = " + result);
          double expResult = TestData.X[i];
-         System.out.println("expResult = " + expResult);
+         //System.out.println("expResult = " + expResult);
          assertEquals(expResult, result, 0.0000000001);
 
          result = earthXyzFuncs.Y(t);
-         System.out.println("Y result = " + result);
+         //System.out.println("Y result = " + result);
          expResult = TestData.Y[i];
-         System.out.println("expResult = " + expResult);
+         //System.out.println("expResult = " + expResult);
          assertEquals(expResult, result, 0.0000000001);
 
          result = earthXyzFuncs.Z(t);
-         System.out.println("Z result = " + result);
+         //System.out.println("Z result = " + result);
          expResult = TestData.Z[i];
-         System.out.println("expResult = " + expResult);
+         //System.out.println("expResult = " + expResult);
          assertEquals(expResult, result, 0.0000000001);
-      }
+
+}
 
    }
 
