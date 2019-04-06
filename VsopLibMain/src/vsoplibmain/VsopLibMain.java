@@ -11,6 +11,13 @@ import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import vsop.generated.CoefsGenerated;
 import vsop.generated.EarthCoefsGenerated;
+import vsop.generated.JupiterCoefsGenerated;
+import vsop.generated.MarsCoefsGenerated;
+import vsop.generated.MercuryCoefsGenerated;
+import vsop.generated.NeptuneCoefsGenerated;
+import vsop.generated.SaturnCoefsGenerated;
+import vsop.generated.UranusCoefsGenerated;
+import vsop.generated.VenusCoefsGenerated;
 
 /**
  *
@@ -33,6 +40,8 @@ public class VsopLibMain {
       System.out.println("jdn = " + jdn);
 
       timeEarthCoefsGenerated();
+
+      timeAllCoefsGenerated();
 
    }
 
@@ -137,11 +146,12 @@ public class VsopLibMain {
       System.out.println("Start: timeEarthCoefsGenerated");
 
       CoefsGenerated ecg = new EarthCoefsGenerated();
+
       double jd = 2458578.0;
 
       long start = System.currentTimeMillis();
 
-      for (int i = 0; i < 10000; i++) {
+      for (int i = 0; i < 1000; i++) {
          double x = ecg.X(jd);
          double y = ecg.Y(jd);
          double z = ecg.Z(jd);
@@ -153,6 +163,74 @@ public class VsopLibMain {
       System.out.println("timeEarthCoefsGenerated elapsed = " + elapsed);
 
       System.out.println("End: timeEarthCoefsGenerated");
+   }
+
+   public static void timeAllCoefsGenerated() {
+
+      System.out.println("Start: timeALLCoefsGenerated");
+
+      CoefsGenerated mcg = new MercuryCoefsGenerated();
+      CoefsGenerated vcg = new VenusCoefsGenerated();
+      CoefsGenerated ecg = new EarthCoefsGenerated();
+      CoefsGenerated rcg = new MarsCoefsGenerated();
+      CoefsGenerated jcg = new JupiterCoefsGenerated();
+      CoefsGenerated scg = new SaturnCoefsGenerated();
+      CoefsGenerated ucg = new UranusCoefsGenerated();
+      CoefsGenerated ncg = new NeptuneCoefsGenerated();
+
+      double jd = 2458578.0;
+
+      long start = System.currentTimeMillis();
+      double x, y, z;
+      for (int i = 0; i < 1000; i++) {
+         // Mercury
+         x = mcg.X(jd);
+         y = mcg.Y(jd);
+         z = mcg.Z(jd);
+
+         // Venus
+         x = vcg.X(jd);
+         y = vcg.Y(jd);
+         z = vcg.Z(jd);
+
+         // Eartth
+         x = ecg.X(jd);
+         y = ecg.Y(jd);
+         z = ecg.Z(jd);
+
+         // Mars
+         x = rcg.X(jd);
+         y = rcg.Y(jd);
+         z = rcg.Z(jd);
+
+         // Jupiter
+         x = jcg.X(jd);
+         y = jcg.Y(jd);
+         z = jcg.Z(jd);
+
+         // Saturn
+         x = scg.X(jd);
+         y = scg.Y(jd);
+         z = scg.Z(jd);
+
+         // Uranus
+         x = ucg.X(jd);
+         y = ucg.Y(jd);
+         z = ucg.Z(jd);
+
+         // Neptune
+         x = ncg.X(jd);
+         y = ncg.Y(jd);
+         z = ncg.Z(jd);
+
+         jd += 3.1415;
+      }
+
+      long end = System.currentTimeMillis();
+      int elapsed = (int) (end - start);
+      System.out.println("timeAllCoefsGenerated elapsed = " + elapsed);
+
+      System.out.println("End: timeAllCoefsGenerated");
    }
 
 }

@@ -30,9 +30,9 @@ public class GeneratedToArrays {
 
             FileWriter coefsFW = new FileWriter(COFPATHNAM);
             String output = null;
-            List<String> aStrings = new ArrayList();
-            List<String> bStrings = new ArrayList();
-            List<String> cStrings = new ArrayList();
+            List<String> aStrings = new ArrayList<String>();
+            List<String> bStrings = new ArrayList<String>();
+            List<String> cStrings = new ArrayList<String>();
             FileReader xyzFR = new FileReader(XYZPATHNAM);
             BufferedReader br = new BufferedReader(xyzFR);
             String line;
