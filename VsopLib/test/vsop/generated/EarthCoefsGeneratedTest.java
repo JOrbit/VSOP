@@ -5,7 +5,6 @@
  */
 package vsop.generated;
 
-import vsop.generated.EarthCoefsGenerated;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
