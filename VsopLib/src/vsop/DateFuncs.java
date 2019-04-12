@@ -22,6 +22,8 @@ public class DateFuncs {
    public static int J2000 = 2451545;
    public static int DAYS_PER_MILLENNIUM = 365250;
    public static LocalDate JDN0 = LocalDate.of(-4713, 1, 1);
+   public static double SECONDS_PER_DAY = 86400.000000;
+   public static double SPICE_T_OFFSET = 64.1839272847;;
 
    //
    // NOTE: Does not work for Gregorian Dates prior to 1588
@@ -62,11 +64,21 @@ public class DateFuncs {
    // Calculate offset from J2000
    //
    public static double t(double julianDate) {
-      double t;
+      double t; // per 1000 years of days
 
       t = (julianDate - DateFuncs.J2000) / DateFuncs.DAYS_PER_MILLENNIUM;
 
       return t;
+   }
+   
+   //
+   // Calculate seconds from J2000
+   // 
+   public static double et(double t) {
+      double et = 0; // seconds since J2000
+      et = t * DateFuncs.DAYS_PER_MILLENNIUM;
+      et *= DateFuncs.SECONDS_PER_DAY;
+      return et;
    }
 
    public static int getApiUsnoNavyJDN(int year, int month, int day) {

@@ -12,6 +12,11 @@ import vsop.arrays.CoefsArrays;
  * @author owner
  */
 public abstract class CoefsGenerated {
+   
+   public static double KM_PER_AU = 149597870.691;
+   //SpiceDouble AU2KM = 149597870.691;
+   //SpiceDouble KM2AU = 1.0 / AU2KM;
+
 
    abstract public double X0(double t);
 
