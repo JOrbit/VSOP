@@ -16,6 +16,17 @@ public abstract class CoefsGenerated {
    public static double KM_PER_AU = 149597870.691;
    //SpiceDouble AU2KM = 149597870.691;
    //SpiceDouble KM2AU = 1.0 / AU2KM;
+public static String[] PLANETS_SPICE = new String[]{
+      "MERCURY",
+      "VENUS",
+      "EARTH",
+      "MARS_BARYCENTER",
+      "JUPITER_BARYCENTER",
+      "SATURN_BARYCENTER",
+      "URANUS_BARYCENTER",
+      "NEPTUNE_BARYCENTER"
+   };
+
 
 
    abstract public double X0(double t);
@@ -53,6 +64,37 @@ public abstract class CoefsGenerated {
    abstract public double Z4(double t);
 
    abstract public double Z5(double t);
+   
+   public static CoefsGenerated stringConstructor(String string) {
+      
+      CoefsGenerated xyzFuncs = null;
+      if (string.contains("MERCURY")) {
+         xyzFuncs = new MercuryCoefsGenerated();
+      } else if (string.contains("VENUS")) {
+         xyzFuncs = new VenusCoefsGenerated();
+
+      } else if (string.contains("EARTH")) {
+         xyzFuncs = new EarthCoefsGenerated();
+
+      } else if (string.contains("MARS")) {
+         xyzFuncs = new MarsCoefsGenerated();
+
+      } else if (string.contains("JUPITER")) {
+         xyzFuncs = new JupiterCoefsGenerated();
+
+      } else if (string.contains("SATURN")) {
+         xyzFuncs
+                 = new SaturnCoefsGenerated();
+
+      } else if (string.contains("URANUS")) {
+         xyzFuncs = new UranusCoefsGenerated();
+
+      } else if (string.contains("NEPTUNE")) {
+         xyzFuncs = new NeptuneCoefsGenerated();
+      }
+
+      return xyzFuncs;
+   }
 
    public double X(double t) {
       double X = Double.NaN;
