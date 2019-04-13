@@ -69,6 +69,11 @@ public abstract class CoefsGenerated {
    public double Z(double t) {
       double Z = Double.NaN;
       Z = Z0(t) + Z1(t) + Z2(t) + Z3(t) + Z4(t) + Z5(t);
+      //
+      // KLUDGE
+      // The Z compent differs from the Spice data by 100%.  So divide it by 2.
+      //
+      Z /= 2.0;
       return Z;
    }
 
