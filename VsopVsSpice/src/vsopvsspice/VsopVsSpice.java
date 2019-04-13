@@ -25,23 +25,12 @@ import vsop.generated.VenusCoefsGenerated;
  */
 public class VsopVsSpice {
 
-   public static String[] PLANETS_SPICE = new String[]{
-      "MERCURY",
-      "VENUS",
-      "EARTH",
-      "MARS_BARYCENTER",
-      "JUPITER_BARYCENTER",
-      "SATURN_BARYCENTER",
-      "URANUS_BARYCENTER",
-      "NEPTUNE_BARYCENTER"
-   };
-
    /**
     * @param args the command line arguments
     */
    public static void main(String[] args) {
 
-      for (String Planet : VsopVsSpice.PLANETS_SPICE) {
+      for (String Planet : CoefsGenerated.PLANETS_SPICE) {
 
          String fileName = "D:\\JOrbit\\Spice\\SpiceVsopMain\\" + Planet
                  + "-ECLIPJ2000-SUN-XyzR.txt";
@@ -83,7 +72,7 @@ public class VsopVsSpice {
                //
                // TODO: Get planet from filename
                //
-               CoefsGenerated xyzFuncs = VsopVsSpice.construct(fileName);
+               CoefsGenerated xyzFuncs = CoefsGenerated.stringConstructor(fileName);
 
                xVsop = xyzFuncs.X(tVsop) * CoefsGenerated.KM_PER_AU;
                VsopVsSpice.percentDiff(xVsop, xSpice, "X");
@@ -113,36 +102,6 @@ public class VsopVsSpice {
       double percent = 100.0 * diff / Math.abs(spice);
       System.out.println("Var " + var + " percentage difference = "
               + String.format("%.6f", percent));
-   }
-
-   public static CoefsGenerated construct(String fileName) {
-      CoefsGenerated xyzFuncs = null;
-      if (fileName.contains("MERCURY")) {
-         xyzFuncs = new MercuryCoefsGenerated();
-      } else if (fileName.contains("VENUS")) {
-         xyzFuncs = new VenusCoefsGenerated();
-
-      } else if (fileName.contains("EARTH")) {
-         xyzFuncs = new EarthCoefsGenerated();
-
-      } else if (fileName.contains("MARS")) {
-         xyzFuncs = new MarsCoefsGenerated();
-
-      } else if (fileName.contains("JUPITER")) {
-         xyzFuncs = new JupiterCoefsGenerated();
-
-      } else if (fileName.contains("SATURN")) {
-         xyzFuncs
-                 = new SaturnCoefsGenerated();
-
-      } else if (fileName.contains("URANUS")) {
-         xyzFuncs = new UranusCoefsGenerated();
-
-      } else if (fileName.contains("NEPTUNE")) {
-         xyzFuncs = new NeptuneCoefsGenerated();
-      }
-
-      return xyzFuncs;
    }
 
 }
