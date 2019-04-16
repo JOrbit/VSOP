@@ -12,11 +12,18 @@ import vsop.arrays.CoefsArrays;
  * @author owner
  */
 public abstract class CoefsGenerated {
-   
+
    public static double KM_PER_AU = 149597870.691;
    //SpiceDouble AU2KM = 149597870.691;
    //SpiceDouble KM2AU = 1.0 / AU2KM;
-public static String[] PLANETS_SPICE = new String[]{
+
+   public static double calcR(double x, double y, double z) {
+      double r = 0;
+      r = Math.sqrt(x * x + y * y + z * z);
+      return r;
+   }
+
+   public static String[] PLANETS_SPICE = new String[]{
       "MERCURY",
       "VENUS",
       "EARTH",
@@ -26,8 +33,6 @@ public static String[] PLANETS_SPICE = new String[]{
       "URANUS_BARYCENTER",
       "NEPTUNE_BARYCENTER"
    };
-
-
 
    abstract public double X0(double t);
 
@@ -64,9 +69,9 @@ public static String[] PLANETS_SPICE = new String[]{
    abstract public double Z4(double t);
 
    abstract public double Z5(double t);
-   
+
    public static CoefsGenerated stringConstructor(String string) {
-      
+
       CoefsGenerated xyzFuncs = null;
       if (string.contains("MERCURY")) {
          xyzFuncs = new MercuryCoefsGenerated();
