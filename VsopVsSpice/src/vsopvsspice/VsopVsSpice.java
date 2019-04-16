@@ -10,14 +10,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import vsop.DateFuncs;
 import vsop.generated.CoefsGenerated;
-import vsop.generated.EarthCoefsGenerated;
-import vsop.generated.JupiterCoefsGenerated;
-import vsop.generated.MarsCoefsGenerated;
-import vsop.generated.MercuryCoefsGenerated;
-import vsop.generated.NeptuneCoefsGenerated;
-import vsop.generated.SaturnCoefsGenerated;
-import vsop.generated.UranusCoefsGenerated;
-import vsop.generated.VenusCoefsGenerated;
 
 /**
  *
@@ -30,25 +22,48 @@ public class VsopVsSpice {
     */
    public static void main(String[] args) {
 
-      for (String Planet : CoefsGenerated.PLANETS_SPICE) {
+      for (String planet : CoefsGenerated.PLANETS_SPICE) {
 
-         String fileName = "D:\\JOrbit\\Spice\\SpiceVsopMain\\" + Planet
+         String fileName = "D:\\JOrbit\\Spice\\SpiceVsopMain\\" + planet
                  + "-ECLIPJ2000-SUN-XyzR.txt";
 
          System.out.println("fileName = " + fileName);
 
          int jdn = DateFuncs.J2000;
-         double etSpice = 0;
-         double xSpice = 0;
-         double ySpice = 0;
-         double zSpice = 0;
-         double rSpice = 0;
-         double tVsop = 0;
-         double etVsop = 0;
-         double xVsop = 0;
-         double yVsop = 0;
-         double zVsop = 0;
-         double rVsop = 0;
+
+         double etSpice;
+         double xSpice;
+         double ySpice;
+         double zSpice;
+         double rSpice;
+         double tVsop;
+         double etVsop;
+         double xVsop;
+         double yVsop;
+         double zVsop;
+         double rVsop;
+
+         double etMaxDiff = Double.NEGATIVE_INFINITY;
+         double xMaxDiff = Double.NEGATIVE_INFINITY;
+         double etXmaxDiff = Double.NEGATIVE_INFINITY;
+         double yMaxDiff = Double.NEGATIVE_INFINITY;
+         double etYmaxDiff = Double.NEGATIVE_INFINITY;
+         double zMaxDiff = Double.NEGATIVE_INFINITY;
+         double etZmaxDiff = Double.NEGATIVE_INFINITY;
+         double rMaxDiff = Double.NEGATIVE_INFINITY;
+         double etRmaxDiff = Double.NEGATIVE_INFINITY;
+
+         double etMaxPrctDiff = Double.NEGATIVE_INFINITY;
+         double xMaxPrctDiff = Double.NEGATIVE_INFINITY;
+         double etXmaxPrctDiff = Double.NEGATIVE_INFINITY;
+         double yMaxPrctDiff = Double.NEGATIVE_INFINITY;
+         double etYmaxPrctDiff = Double.NEGATIVE_INFINITY;
+         double zMaxPrctDiff = Double.NEGATIVE_INFINITY;
+         double etZmaxPrctDiff = Double.NEGATIVE_INFINITY;
+         double rMaxPrctDiff = Double.NEGATIVE_INFINITY;
+         double etRmaxPrctDiff = Double.NEGATIVE_INFINITY;
+
+         CoefsGenerated xyzFuncs = CoefsGenerated.stringConstructor(fileName);
 
          BufferedReader reader;
          try {
@@ -68,27 +83,95 @@ public class VsopVsSpice {
                //
                tVsop = DateFuncs.t(jdn++);
                etVsop = DateFuncs.et(tVsop) + DateFuncs.SPICE_T_OFFSET;
-               VsopVsSpice.percentDiff(etVsop, etSpice, "ET");
                //
-               // TODO: Get planet from filename
+               // Convert VSOP AU to Kilometers
                //
-               CoefsGenerated xyzFuncs = CoefsGenerated.stringConstructor(fileName);
-
                xVsop = xyzFuncs.X(tVsop) * CoefsGenerated.KM_PER_AU;
-               VsopVsSpice.percentDiff(xVsop, xSpice, "X");
-
                yVsop = xyzFuncs.Y(tVsop) * CoefsGenerated.KM_PER_AU;
-               VsopVsSpice.percentDiff(yVsop, ySpice, "Y");
-
                zVsop = xyzFuncs.Z(tVsop) * CoefsGenerated.KM_PER_AU;
-               VsopVsSpice.percentDiff(zVsop, zSpice, "Z");
+rVsop = CoefsGenerated.calcR(xVsop, yVsop, zVsop);
 
-               rVsop = Math.sqrt(xVsop * xVsop + yVsop * yVsop + zVsop * zVsop);
-               VsopVsSpice.percentDiff(rVsop, rSpice, "R");
+               double aDiff = Math.abs(etSpice - etVsop);
+               if (aDiff > etMaxDiff) {
+                  etMaxDiff = aDiff;
+               }
 
-               System.out.println();
+               aDiff = Math.abs(xSpice - xVsop);
+               if (aDiff > xMaxDiff) {
+                  xMaxDiff = aDiff;
+                  etXmaxDiff = etVsop;
+               }
+
+               aDiff = Math.abs(ySpice - yVsop);
+               if (aDiff > yMaxDiff) {
+                  yMaxDiff = aDiff;
+                  etYmaxDiff = etVsop;
+               }
+
+               aDiff = Math.abs(zSpice - zVsop);
+               if (aDiff > zMaxDiff) {
+                  zMaxDiff = aDiff;
+                  etZmaxDiff = etVsop;
+               }
+
+               aDiff = Math.abs(rSpice - rVsop);
+               if (aDiff > rMaxDiff) {
+                  rMaxDiff = aDiff;
+                  etRmaxDiff = etVsop;
+               }
+
+               aDiff = percentDiff(etSpice, etVsop);
+               if (aDiff > etMaxPrctDiff) {
+                  etMaxPrctDiff = aDiff;
+               }
+
+               aDiff = percentDiff(xSpice, xVsop);
+               if (aDiff > xMaxPrctDiff) {
+                  xMaxPrctDiff = aDiff;
+                  etXmaxPrctDiff = etSpice;
+               }
+
+               aDiff = percentDiff(ySpice, yVsop);
+               if (aDiff > yMaxPrctDiff) {
+                  yMaxPrctDiff = aDiff;
+                  etYmaxPrctDiff = etSpice;
+               }
+
+               aDiff = percentDiff(zSpice, zVsop);
+               if (aDiff > zMaxPrctDiff) {
+                  zMaxPrctDiff = aDiff;
+                  etZmaxPrctDiff = etSpice;
+               }
+
+               aDiff = percentDiff(rSpice, rVsop);
+               if (aDiff > rMaxPrctDiff) {
+                  rMaxPrctDiff = aDiff;
+                  etRmaxPrctDiff = etSpice;
+               }
+
+               // System.out.println();
                line = reader.readLine();
             }
+
+            //
+            // Print Max Diffs
+            //
+            System.out.println("For Planet = " + planet);
+
+            System.out.println("Max ET diff = " + etMaxDiff + "(s)");
+            System.out.println("Max X diff = " + xMaxDiff + "(km)" + " at ET = " + etXmaxDiff);
+            System.out.println("Max Y diff = " + yMaxDiff + "(km)" + " at ET = " + etYmaxDiff);
+            System.out.println("Max Z diff = " + zMaxDiff + "(km)" + " at ET = " + etZmaxDiff);
+            System.out.println("Max R diff = " + rMaxDiff + "(km)" + " at ET = " + etRmaxDiff);
+            System.out.println("");
+
+            System.out.println("Max ET% diff = " + etMaxPrctDiff + "(%)");
+            System.out.println("Max X diff = " + xMaxPrctDiff + "(%)" + " at ET = " + etXmaxPrctDiff);
+            System.out.println("Max Y diff = " + yMaxPrctDiff + "(%)" + " at ET = " + etYmaxPrctDiff);
+            System.out.println("Max Z diff = " + zMaxPrctDiff + "(%)" + " at ET = " + etZmaxPrctDiff);
+            System.out.println("Max R diff = " + rMaxPrctDiff + "(%)" + " at ET = " + etRmaxPrctDiff);
+            System.out.println("");
+
             reader.close();
          } catch (IOException e) {
             e.printStackTrace();
@@ -97,11 +180,10 @@ public class VsopVsSpice {
       }
    }
 
-   public static void percentDiff(double vsop, double spice, String var) {
+   public static double percentDiff(double vsop, double spice) {
       double diff = Math.abs(vsop - spice);
       double percent = 100.0 * diff / Math.abs(spice);
-      System.out.println("Var " + var + " percentage difference = "
-              + String.format("%.6f", percent));
+      return percent;
    }
 
 }
